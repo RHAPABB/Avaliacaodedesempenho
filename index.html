@@ -1524,6 +1524,101 @@ body { background: var(--bg); font-family: 'Inter', system-ui, sans-serif; }
 .pending-banner { background: var(--amber-bg, #fffbeb); border: 1px solid var(--amber, #f59e0b); border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 14px; font-size: 13px; display: flex; align-items: center; gap: 10px; }
 .pending-banner a { color: var(--amber, #f59e0b); font-weight: 700; cursor: pointer; text-decoration: underline; }
 @media (max-width: 768px) { .sidebar { transform: translateX(-100%); } .sidebar.mob-open { transform: translateX(0); } #mainContent { margin-left: 0 !important; } .sidebar-user { left: -240px; } .sidebar.mob-open ~ .sidebar-user, .mob-open + .sidebar-user { left: 0; } }
+
+/* ═══════════════════ UNIVERSIDADE APABB LMS ═══════════════════ */
+.univ-header {
+  background: linear-gradient(135deg, var(--primary-d) 0%, var(--primary-m) 100%);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 20px;
+}
+.univ-header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.univ-stats { display: flex; gap: 24px; }
+.univ-stat { text-align: center; }
+.univ-stat-val { font-size: 26px; font-weight: 800; color: #fff; }
+.univ-stat-lbl { font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.07em; }
+
+.univ-filters {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 24px; align-items: center;
+}
+.univ-search-wrap { position: relative; flex: 1; min-width: 220px; }
+.univ-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 14px; }
+.univ-search { width: 100%; padding: 9px 12px 9px 36px; border: 1.5px solid var(--border-2); border-radius: var(--radius-sm); font-size: 13.5px; font-family: inherit; background: var(--surface); color: var(--ink); box-sizing: border-box; }
+.univ-search:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(27,58,140,.1); }
+.univ-select { padding: 9px 32px 9px 12px; border: 1.5px solid var(--border-2); border-radius: var(--radius-sm); font-size: 13px; font-family: inherit; background: var(--surface); color: var(--ink); cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7A99' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
+
+.univ-courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+/* Card de curso */
+.course-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .15s;
+  box-shadow: var(--shadow-xs);
+  display: flex; flex-direction: column;
+}
+.course-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.course-card-thumb {
+  height: 120px;
+  background: linear-gradient(135deg, var(--primary-xl) 0%, rgba(27,58,140,0.08) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; position: relative;
+}
+.course-card-level {
+  position: absolute; top: 10px; right: 10px;
+  font-size: 10px; font-weight: 700; padding: 3px 8px;
+  border-radius: 999px; text-transform: uppercase; letter-spacing: 0.06em;
+}
+.course-card-level.basico      { background: var(--green-bg); color: var(--green); }
+.course-card-level.intermediario{ background: var(--orange-bg); color: var(--accent-d); }
+.course-card-level.avancado    { background: var(--primary-xl); color: var(--primary); }
+.course-card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.course-card-cat  { font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
+.course-card-title{ font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+.course-card-desc { font-size: 12.5px; color: var(--muted); line-height: 1.5; flex: 1; }
+.course-card-meta { display: flex; align-items: center; gap: 12px; font-size: 11.5px; color: var(--muted); }
+.course-card-footer { padding: 12px 16px; border-top: 1px solid var(--border); }
+.course-progress-bar { height: 6px; background: var(--border); border-radius: 999px; overflow: hidden; margin-bottom: 6px; }
+.course-progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 999px; transition: width .4s; }
+.course-progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+.course-status-badge { font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
+.course-status-badge.nao_iniciado  { background: var(--border); color: var(--muted); }
+.course-status-badge.em_andamento  { background: var(--orange-bg); color: var(--accent-d); }
+.course-status-badge.concluido     { background: var(--green-bg); color: var(--green); }
+
+/* Detalhe do curso */
+.course-detail-header {
+  background: linear-gradient(135deg, var(--primary-d), var(--primary-m));
+  border-radius: var(--radius-lg); padding: 28px 32px; margin-bottom: 20px; color: #fff;
+}
+.course-detail-body { display: grid; grid-template-columns: 1fr 300px; gap: 20px; }
+@media (max-width:768px) { .course-detail-body { grid-template-columns: 1fr; } }
+.course-modules { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.course-module-header { padding: 14px 20px; background: var(--surface-2); border-bottom: 1px solid var(--border); font-weight: 700; font-size: 13.5px; color: var(--ink); display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.course-aula-item { padding: 11px 20px 11px 36px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; cursor: pointer; transition: background .15s; font-size: 13px; }
+.course-aula-item:hover { background: var(--surface-2); }
+.course-aula-item.active { background: var(--primary-xl); color: var(--primary); font-weight: 600; }
+.course-aula-item.done { color: var(--green); }
+.course-aula-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
+.course-video-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.course-video-wrap { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
+.course-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+.course-video-info { padding: 16px 20px; }
+.course-sidebar-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; }
+.course-sidebar-stat { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.course-sidebar-stat:last-child { border-bottom: none; }
+.course-quiz-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+.quiz-question { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+.quiz-option { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 8px; cursor: pointer; font-size: 13.5px; transition: border-color .15s, background .15s; }
+.quiz-option:hover { border-color: var(--primary-l); background: var(--primary-xl); }
+.quiz-option.selected { border-color: var(--primary); background: var(--primary-xl); }
+.quiz-option.correct  { border-color: var(--green); background: var(--green-bg); }
+.quiz-option.wrong    { border-color: var(--red); background: var(--red-bg); }
+.cert-block { background: linear-gradient(135deg, var(--primary-xl), var(--accent-l)); border: 2px solid var(--primary-l); border-radius: var(--radius-lg); padding: 24px; text-align: center; margin-top: 16px; }
 </style>
 </head>
 <body>
@@ -1872,12 +1967,63 @@ body { background: var(--bg); font-family: 'Inter', system-ui, sans-serif; }
 
 <!-- ═══════════════════════════ UNIVERSIDADE APABB ═══════════════════════════ -->
 <div id="univScreen" class="hide">
-  <div class="card anim-in">
-    <div class="page-kicker">Desenvolvimento</div>
-    <h2 class="page-title">Universidade APABB — Trilhas de Aprendizagem</h2>
-    <p class="page-lead" style="margin-bottom:20px">Trilhas de desenvolvimento organizadas por categoria. Recomendações automáticas baseadas nas avaliações.</p>
-    <div id="univContent"></div>
-    <div class="btn-row"><button class="btn btn-ghost" id="univBack">← Voltar</button></div>
+  <!-- Cabeçalho da Universidade -->
+  <div class="univ-header">
+    <div class="univ-header-inner">
+      <div>
+        <div class="page-kicker">Universidade APABB</div>
+        <h2 class="page-title" style="color:#fff;margin-bottom:6px">Aprenda. Cresça. Inspire.</h2>
+        <p style="color:rgba(255,255,255,0.75);font-size:14px;margin:0">Plataforma oficial de aprendizagem corporativa da APABB</p>
+      </div>
+      <div class="univ-stats" id="univHeaderStats"></div>
+    </div>
+  </div>
+
+  <!-- Barra de busca e filtros -->
+  <div class="univ-filters">
+    <div class="univ-search-wrap">
+      <span class="univ-search-icon">🔍</span>
+      <input type="text" id="univSearch" class="univ-search" placeholder="Buscar cursos...">
+    </div>
+    <select id="univFilterCat" class="univ-select">
+      <option value="">Todas as categorias</option>
+      <option value="integracao">Integração Institucional</option>
+      <option value="lideranca">Liderança e Gestão</option>
+      <option value="rh">Recursos Humanos</option>
+      <option value="atendimento">Atendimento e Relacionamento</option>
+      <option value="servico_social">Serviço Social</option>
+      <option value="esporte">Esporte e Lazer</option>
+      <option value="captacao">Captação de Recursos</option>
+      <option value="financeiro">Administrativo e Financeiro</option>
+      <option value="compliance">Compliance e LGPD</option>
+      <option value="diversidade">Diversidade e Inclusão</option>
+      <option value="desenvolvimento">Desenvolvimento Pessoal</option>
+      <option value="tecnologia">Tecnologia e Ferramentas</option>
+    </select>
+    <select id="univFilterLevel" class="univ-select">
+      <option value="">Todos os níveis</option>
+      <option value="basico">Básico</option>
+      <option value="intermediario">Intermediário</option>
+      <option value="avancado">Avançado</option>
+    </select>
+    <select id="univFilterStatus" class="univ-select">
+      <option value="">Todos os status</option>
+      <option value="nao_iniciado">Não iniciado</option>
+      <option value="em_andamento">Em andamento</option>
+      <option value="concluido">Concluído</option>
+    </select>
+  </div>
+
+  <!-- Grade de cursos -->
+  <div class="univ-courses-grid" id="univCoursesGrid"></div>
+
+  <!-- Tela interna: detalhe do curso -->
+  <div id="univCourseDetail" style="display:none">
+    <div id="univCourseDetailContent"></div>
+  </div>
+
+  <div class="btn-row" style="margin-top:24px">
+    <button class="btn btn-ghost" id="univBack">← Voltar</button>
   </div>
 </div>
 
@@ -1919,6 +2065,199 @@ const SCOPES={
   VINICIUSSAVIOLI:{cargoKeys:["tec_esporte_lazer","tec_modalidade","estagio_edfisica"],allFiliais:true},
   /* Ronaldo avalia: Gerentes, Coordenadores e Beatriz Pereira (RH) */
   RONALDORIPARI:{cargoKeys:["gerente_nucleo","coord_financeiro","coord_rh","coord_projetos","coord_esporte","coord_captacao"],allFiliais:true,extra:["BEATRIZPEREIRA"]},
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   LMS — CURSOS DA UNIVERSIDADE APABB
+═══════════════════════════════════════════════════════════════ */
+const LMS_COURSES = [
+  // === INTEGRAÇÃO INSTITUCIONAL ===
+  { id:"INT001", cat:"integracao", catLabel:"Integração Institucional", title:"Bem-vindo à APABB", desc:"Conheça a história, missão, visão e valores da APABB.", hours:4, level:"basico", instructor:"RH APABB", cert:true,
+    modules:[
+      { id:"m1", title:"História e Missão", aulas:[
+        {id:"a1", title:"Quem somos", yt:"dQw4w9WgXcQ", dur:"8min"},
+        {id:"a2", title:"Missão, Visão e Valores", yt:"dQw4w9WgXcQ", dur:"10min"}
+      ]},
+      { id:"m2", title:"Estrutura Organizacional", aulas:[
+        {id:"a3", title:"Organograma APABB", yt:"dQw4w9WgXcQ", dur:"12min"},
+        {id:"a4", title:"Normas e Políticas Internas", yt:"dQw4w9WgXcQ", dur:"15min"}
+      ]}
+    ],
+    quiz:[
+      {q:"Qual é a missão da APABB?", opts:["Promover esporte adaptado","Vender produtos","Construir edifícios","Nenhuma das anteriores"], correct:0},
+      {q:"A APABB atende principalmente qual público?", opts:["Pessoas sem deficiência","Crianças em geral","Pessoas com deficiência","Atletas profissionais"], correct:2}
+    ]
+  },
+  // === LIDERANÇA E GESTÃO ===
+  { id:"LID001", cat:"lideranca", catLabel:"Liderança e Gestão", title:"Liderança Humanizada", desc:"Desenvolva competências de liderança com foco em pessoas e propósito.", hours:8, level:"intermediario", instructor:"Coord. RH", cert:true,
+    modules:[
+      { id:"m1", title:"Fundamentos da Liderança", aulas:[
+        {id:"a1", title:"O que é liderança humanizada", yt:"dQw4w9WgXcQ", dur:"15min"},
+        {id:"a2", title:"Estilos de liderança", yt:"dQw4w9WgXcQ", dur:"20min"},
+        {id:"a3", title:"Comunicação assertiva", yt:"dQw4w9WgXcQ", dur:"18min"}
+      ]},
+      { id:"m2", title:"Gestão de Equipes", aulas:[
+        {id:"a4", title:"Feedback eficaz", yt:"dQw4w9WgXcQ", dur:"22min"},
+        {id:"a5", title:"Gestão de conflitos", yt:"dQw4w9WgXcQ", dur:"19min"},
+        {id:"a6", title:"Delegação e autonomia", yt:"dQw4w9WgXcQ", dur:"17min"}
+      ]}
+    ],
+    quiz:[
+      {q:"Liderança humanizada prioriza:", opts:["Resultados acima de tudo","Pessoas e propósito","Hierarquia rígida","Controle e punição"], correct:1},
+      {q:"Feedback eficaz deve ser:", opts:["Genérico","Baseado em fatos e comportamentos","Apenas positivo","Anônimo"], correct:1}
+    ]
+  },
+  // === RECURSOS HUMANOS ===
+  { id:"RH001", cat:"rh", catLabel:"Recursos Humanos", title:"Gestão de Pessoas na Prática", desc:"Fundamentos de RH aplicados ao contexto da APABB.", hours:6, level:"intermediario", instructor:"Coord. RH", cert:true,
+    modules:[
+      { id:"m1", title:"Recrutamento e Seleção", aulas:[
+        {id:"a1", title:"Processo seletivo", yt:"dQw4w9WgXcQ", dur:"20min"},
+        {id:"a2", title:"Entrevista por competências", yt:"dQw4w9WgXcQ", dur:"25min"}
+      ]},
+      { id:"m2", title:"Cargos e Salários", aulas:[
+        {id:"a3", title:"Estrutura de cargos", yt:"dQw4w9WgXcQ", dur:"18min"},
+        {id:"a4", title:"Política salarial", yt:"dQw4w9WgXcQ", dur:"22min"}
+      ]}
+    ],
+    quiz:[
+      {q:"Entrevista por competências avalia:", opts:["Aparência física","Comportamentos passados","Preferências pessoais","Nenhuma das anteriores"], correct:1}
+    ]
+  },
+  // === ATENDIMENTO E RELACIONAMENTO ===
+  { id:"ATD001", cat:"atendimento", catLabel:"Atendimento e Relacionamento", title:"Comunicação e Atendimento Humanizado", desc:"Técnicas de comunicação e relacionamento com pessoas com deficiência.", hours:5, level:"basico", instructor:"RH APABB", cert:true,
+    modules:[
+      { id:"m1", title:"Comunicação Eficaz", aulas:[
+        {id:"a1", title:"Comunicação verbal e não verbal", yt:"dQw4w9WgXcQ", dur:"14min"},
+        {id:"a2", title:"Escuta ativa", yt:"dQw4w9WgXcQ", dur:"16min"}
+      ]},
+      { id:"m2", title:"Atendimento à Pessoa com Deficiência", aulas:[
+        {id:"a3", title:"Etiqueta no atendimento", yt:"dQw4w9WgXcQ", dur:"20min"},
+        {id:"a4", title:"Acessibilidade na prática", yt:"dQw4w9WgXcQ", dur:"18min"}
+      ]}
+    ],
+    quiz:[
+      {q:"Escuta ativa significa:", opts:["Apenas ouvir","Ouvir e interpretar ativamente","Interromper sempre","Ignorar o que não interessa"], correct:1}
+    ]
+  },
+  // === SERVIÇO SOCIAL ===
+  { id:"SS001", cat:"servico_social", catLabel:"Serviço Social", title:"Fundamentos do Serviço Social na APABB", desc:"Prática profissional do serviço social no contexto da deficiência.", hours:6, level:"intermediario", instructor:"Assistente Social Sr.", cert:true,
+    modules:[
+      { id:"m1", title:"Serviço Social e Deficiência", aulas:[
+        {id:"a1", title:"O papel do assistente social", yt:"dQw4w9WgXcQ", dur:"20min"},
+        {id:"a2", title:"Legislação e direitos", yt:"dQw4w9WgXcQ", dur:"25min"}
+      ]}
+    ],
+    quiz:[{q:"O Serviço Social na APABB foca em:", opts:["Administração financeira","Garantia de direitos das PcD","Marketing","Nenhuma das anteriores"], correct:1}]
+  },
+  // === ESPORTE E LAZER ===
+  { id:"EL001", cat:"esporte", catLabel:"Esporte e Lazer", title:"Metodologias Esportivas Adaptadas", desc:"Práticas esportivas adaptadas para pessoas com deficiência.", hours:8, level:"intermediario", instructor:"Coord. Esporte", cert:true,
+    modules:[
+      { id:"m1", title:"Esporte Paralímpico", aulas:[
+        {id:"a1", title:"Classificação funcional", yt:"dQw4w9WgXcQ", dur:"18min"},
+        {id:"a2", title:"Modalidades paralímpicas", yt:"dQw4w9WgXcQ", dur:"22min"}
+      ]},
+      { id:"m2", title:"Inclusão pelo Esporte", aulas:[
+        {id:"a3", title:"Acessibilidade nos esportes", yt:"dQw4w9WgXcQ", dur:"20min"},
+        {id:"a4", title:"Gestão de eventos esportivos", yt:"dQw4w9WgXcQ", dur:"25min"}
+      ]}
+    ],
+    quiz:[{q:"Classificação funcional serve para:", opts:["Separar atletas por altura","Garantir equidade na competição","Definir salários","Nenhuma das anteriores"], correct:1}]
+  },
+  // === CAPTAÇÃO DE RECURSOS ===
+  { id:"CAP001", cat:"captacao", catLabel:"Captação de Recursos", title:"Fundamentos de Captação de Recursos", desc:"Estratégias e ferramentas para captação de recursos em ONGs.", hours:6, level:"intermediario", instructor:"Coord. Captação", cert:true,
+    modules:[
+      { id:"m1", title:"Fundamentos", aulas:[
+        {id:"a1", title:"O que é captação de recursos", yt:"dQw4w9WgXcQ", dur:"16min"},
+        {id:"a2", title:"Tipos de doadores", yt:"dQw4w9WgXcQ", dur:"20min"}
+      ]},
+      { id:"m2", title:"Estratégias", aulas:[
+        {id:"a3", title:"Marketing para ONGs", yt:"dQw4w9WgXcQ", dur:"22min"},
+        {id:"a4", title:"Prestação de contas para doadores", yt:"dQw4w9WgXcQ", dur:"18min"}
+      ]}
+    ],
+    quiz:[{q:"Prestação de contas para doadores é:", opts:["Opcional","Obrigatória e transparente","Apenas interna","Nenhuma das anteriores"], correct:1}]
+  },
+  // === ADMINISTRATIVO E FINANCEIRO ===
+  { id:"FIN001", cat:"financeiro", catLabel:"Administrativo e Financeiro", title:"Gestão Financeira para ONGs", desc:"Controle financeiro, prestação de contas e compliance em organizações sociais.", hours:8, level:"intermediario", instructor:"Coord. Financeiro", cert:true,
+    modules:[
+      { id:"m1", title:"Finanças Básicas", aulas:[
+        {id:"a1", title:"Fluxo de caixa", yt:"dQw4w9WgXcQ", dur:"20min"},
+        {id:"a2", title:"Conciliação bancária", yt:"dQw4w9WgXcQ", dur:"22min"}
+      ]},
+      { id:"m2", title:"Prestação de Contas", aulas:[
+        {id:"a3", title:"Relatórios financeiros", yt:"dQw4w9WgXcQ", dur:"25min"},
+        {id:"a4", title:"Compliance financeiro", yt:"dQw4w9WgXcQ", dur:"20min"}
+      ]}
+    ],
+    quiz:[{q:"Fluxo de caixa controla:", opts:["Apenas despesas","Apenas receitas","Entradas e saídas de recursos","Nada disso"], correct:2}]
+  },
+  // === COMPLIANCE E LGPD ===
+  { id:"LGPD001", cat:"compliance", catLabel:"Compliance e LGPD", title:"LGPD na Prática", desc:"Lei Geral de Proteção de Dados aplicada ao contexto das ONGs.", hours:4, level:"basico", instructor:"RH APABB", cert:true,
+    modules:[
+      { id:"m1", title:"Fundamentos da LGPD", aulas:[
+        {id:"a1", title:"O que é LGPD", yt:"dQw4w9WgXcQ", dur:"15min"},
+        {id:"a2", title:"Direitos dos titulares", yt:"dQw4w9WgXcQ", dur:"18min"},
+        {id:"a3", title:"Obrigações da organização", yt:"dQw4w9WgXcQ", dur:"20min"}
+      ]}
+    ],
+    quiz:[{q:"A LGPD protege:", opts:["Dados financeiros apenas","Dados pessoais de pessoas naturais","Apenas dados de clientes","Nenhuma das anteriores"], correct:1}]
+  },
+  // === DIVERSIDADE E INCLUSÃO ===
+  { id:"DIV001", cat:"diversidade", catLabel:"Diversidade e Inclusão", title:"Diversidade, Equidade e Inclusão", desc:"Construindo ambientes inclusivos e respeitosos na APABB.", hours:5, level:"basico", instructor:"RH APABB", cert:true,
+    modules:[
+      { id:"m1", title:"Conceitos Fundamentais", aulas:[
+        {id:"a1", title:"Diversidade e inclusão", yt:"dQw4w9WgXcQ", dur:"16min"},
+        {id:"a2", title:"Vieses inconscientes", yt:"dQw4w9WgXcQ", dur:"18min"}
+      ]},
+      { id:"m2", title:"Práticas Inclusivas", aulas:[
+        {id:"a3", title:"Linguagem inclusiva", yt:"dQw4w9WgXcQ", dur:"14min"},
+        {id:"a4", title:"Acessibilidade no trabalho", yt:"dQw4w9WgXcQ", dur:"20min"}
+      ]}
+    ],
+    quiz:[{q:"Vieses inconscientes são:", opts:["Sempre intencionais","Estereótipos automáticos que influenciam decisões","Apenas preconceito explícito","Nenhuma das anteriores"], correct:1}]
+  },
+  // === DESENVOLVIMENTO PESSOAL ===
+  { id:"DEV001", cat:"desenvolvimento", catLabel:"Desenvolvimento Pessoal", title:"Inteligência Emocional no Trabalho", desc:"Desenvolva autoconhecimento e gestão emocional para alta performance.", hours:5, level:"basico", instructor:"RH APABB", cert:true,
+    modules:[
+      { id:"m1", title:"Autoconhecimento", aulas:[
+        {id:"a1", title:"O que é inteligência emocional", yt:"dQw4w9WgXcQ", dur:"14min"},
+        {id:"a2", title:"Autoconhecimento e autorregulação", yt:"dQw4w9WgXcQ", dur:"18min"}
+      ]},
+      { id:"m2", title:"Relacionamentos", aulas:[
+        {id:"a3", title:"Empatia no trabalho", yt:"dQw4w9WgXcQ", dur:"16min"},
+        {id:"a4", title:"Gestão do estresse", yt:"dQw4w9WgXcQ", dur:"20min"}
+      ]}
+    ],
+    quiz:[{q:"Inteligência emocional inclui:", opts:["Apenas QI alto","Autoconhecimento e empatia","Ignorar emoções","Nenhuma das anteriores"], correct:1}]
+  },
+  // === TECNOLOGIA ===
+  { id:"TEC001", cat:"tecnologia", catLabel:"Tecnologia e Ferramentas Digitais", title:"Ferramentas Digitais para o Trabalho", desc:"Excel, Google Workspace e ferramentas de produtividade.", hours:6, level:"basico", instructor:"TI APABB", cert:true,
+    modules:[
+      { id:"m1", title:"Google Workspace", aulas:[
+        {id:"a1", title:"Google Drive e Docs", yt:"dQw4w9WgXcQ", dur:"20min"},
+        {id:"a2", title:"Google Sheets básico", yt:"dQw4w9WgXcQ", dur:"25min"}
+      ]},
+      { id:"m2", title:"Comunicação Digital", aulas:[
+        {id:"a3", title:"E-mail profissional", yt:"dQw4w9WgXcQ", dur:"15min"},
+        {id:"a4", title:"Reuniões online", yt:"dQw4w9WgXcQ", dur:"18min"}
+      ]}
+    ],
+    quiz:[{q:"Google Drive serve para:", opts:["Editar vídeos","Armazenar e compartilhar arquivos","Programar sistemas","Nenhuma das anteriores"], correct:1}]
+  }
+];
+
+// Mapa competência → categoria de cursos (para recomendações)
+const COMP_TO_CAT = {
+  "comunicacao": ["atendimento","desenvolvimento","lideranca"],
+  "trabalho_equipe": ["lideranca","desenvolvimento"],
+  "proatividade": ["desenvolvimento","lideranca"],
+  "etica": ["compliance","integracao"],
+  "fit_cultural": ["integracao","diversidade"],
+  "atendimento": ["atendimento","servico_social"],
+  "tecnico": ["rh","financeiro","esporte","captacao"],
+  "lideranca": ["lideranca"],
+  "gestao": ["lideranca","financeiro"],
+  "resultados": ["lideranca","desenvolvimento"]
 };
 
 /* ===== weights per category (sum 100) ===== */
@@ -2560,18 +2899,30 @@ function showResult(){
   const li=x=>`<li><span class="mk" style="background:${x.v>=4?'var(--b5)':'var(--b2)'}">${x.v}</span>${x.c}</li>`;
   $("#rSW").innerHTML=`<div><div style="font-size:13px;font-weight:800;color:var(--b5);margin-bottom:6px">Pontos fortes (4–5)</div><ul class="tag-list">${strong.length?strong.map(li).join(""):'<li style="font-style:italic;color:var(--muted)">—</li>'}</ul></div>
     <div><div style="font-size:13px;font-weight:800;color:var(--b2);margin-bottom:6px">A desenvolver (1–2)</div><ul class="tag-list">${weak.length?weak.map(li).join(""):'<li style="font-style:italic;color:var(--muted)">Nenhuma. Ótimo sinal!</li>'}</ul></div>`;
-  // orientation
-  $("#rOrient").innerHTML=orient(shown.v,p4,capped,weak.map(x=>x.c));
+  // orientation — use auto-specific language when tipo === "auto"
+  const isAuto=ctx.tipo==="auto";
+  $("#rOrient").innerHTML=isAuto?orientAuto(shown.v,p4,capped,weak.map(x=>x.c)):orient(shown.v,p4,capped,weak.map(x=>x.c));
+  // Update section title for auto
+  const orientTitle=document.querySelector("#resultScreen .blocktitle:last-of-type");
+  document.querySelectorAll("#resultScreen .blocktitle").forEach(el=>{if(el.textContent==="Orientações ao gestor")el.textContent=isAuto?"Reflexão sobre seu desempenho":"Orientações ao gestor";});
   // PDI: 3 lowest competencies
   const pdi=all.slice().sort((a,b)=>a.v-b.v).slice(0,3);
-  $("#rPDI").innerHTML=pdi.length?pdi.map((x,i)=>`<li><span class="mk" style="background:var(--navy)">${i+1}</span><span><strong>${x.c}</strong> <span style="color:var(--muted);font-size:12px">(nota ${x.v})</span><br><span style="font-size:12.5px;color:var(--muted)">${pdiTip(x.v)}</span></span></li>`).join(""):'<li style="font-style:italic;color:var(--muted)">Responda as competências para gerar o foco do PDI.</li>';
-  // Nine Box (não se aplica à avaliação ascendente)
+  $("#rPDI").innerHTML=pdi.length?pdi.map((x,i)=>`<li><span class="mk" style="background:var(--navy)">${i+1}</span><span><strong>${x.c}</strong> <span style="color:var(--muted);font-size:12px">(nota ${x.v})</span><br><span style="font-size:12.5px;color:var(--muted)">${isAuto?pdiTipAuto(x.v):pdiTip(x.v)}</span></span></li>`).join(""):'<li style="font-style:italic;color:var(--muted)">Responda as competências para gerar o foco do PDI.</li>';
+  // Recomendações personalizadas (somente autoavaliação)
+  const recomEl=document.getElementById("pdiTrilhas");
+  if(recomEl && isAuto && typeof LMS_COURSES!=="undefined") {
+    recomEl.innerHTML=renderAutoRecomendacoes(all,score);
+  } else if(recomEl && !isAuto) {
+    recomEl.innerHTML="";
+  }
+  // Nine Box (não se aplica à avaliação ascendente nem autoavaliação)
   const isAsc=ctx.tipo==="ascend";
-  $("#rNineTitle").style.display=isAsc?"none":"flex";
-  $("#rPotWrap").style.display=isAsc?"none":"flex";
-  $("#rNineGrid").style.display=isAsc?"none":"grid";
-  $("#rNbGuide").style.display=isAsc?"none":"block";
-  if(!isAsc){ctx.nineScore=score; renderNineResult(); }
+  const hideNine=isAsc||isAuto;
+  $("#rNineTitle").style.display=hideNine?"none":"flex";
+  $("#rPotWrap").style.display=hideNine?"none":"flex";
+  $("#rNineGrid").style.display=hideNine?"none":"grid";
+  $("#rNbGuide").style.display=hideNine?"none":"block";
+  if(!hideNine){ctx.nineScore=score; renderNineResult(); }
   const sb=$("#saveBtn");sb.disabled=false;sb.style.opacity="1";sb.textContent=ctx.editId?"Salvar alteração":"Salvar no histórico";
   $("#saveHint").textContent=ctx.editId?"Você está editando uma avaliação já existente do histórico (alteração registrada com auditoria).":"Ao salvar, esta avaliação passa a compor o histórico do colaborador (visível conforme as permissões de acesso).";
   show("resultScreen");
@@ -2616,6 +2967,102 @@ function orient(v,p4,capped,weak){
   html+=`<p><span class="k">Conduza a devolutiva</span> em reunião reservada, baseada em fatos e exemplos, equilibrando reconhecimento e desenvolvimento, e transformando a conversa em acordos concretos no PDI.</p>`;
   return html;
 }
+/* Orientações específicas para autoavaliação (linguagem "você/sua/seu") */
+function orientAuto(v,p4,capped,weak){
+  const foco=weak.slice(0,3).join(", ").replace(/, ([^,]*)$/," e $1")||"as competências de menor nota";
+  const M={
+    5:["Parabéns! Seu desempenho está no nível de excelência. Use esta posição para inspirar colegas e buscar novos desafios.","Compartilhe suas práticas com a equipe — seu protagonismo fortalece a cultura APABB.","Busque projetos mais estratégicos que ampliem seu impacto.","Converse com seu gestor sobre suas expectativas de crescimento."],
+    4:["Seu desempenho está acima da média — reconheça isso! Há espaço para avançar ainda mais.","Identifique 1–2 competências em que você quer se tornar referência.","Use o PDI como ferramenta real de desenvolvimento, não apenas um formulário.","Busque feedback do seu gestor para calibrar sua percepção."],
+    3:["Você entrega o esperado — isso é fundamental para a equipe. Agora, escolha onde crescer.","Selecione 1–2 competências para focar no próximo ciclo.","Procure ampliar sua autonomia gradualmente, assumindo mais responsabilidades.","Peça feedback regular ao seu gestor para alinhar expectativas."],
+    2:["Este resultado indica que há pontos importantes a endereçar. Seja honesto consigo mesmo e trace um plano claro.","Defina metas concretas de curto prazo (30–60 dias) para as competências prioritárias.","Busque apoio: peça mentoria, participe de treinamentos e converse com seu gestor.","Acompanhe sua própria evolução a cada ciclo — pequenas melhorias consistentes fazem grande diferença."],
+    1:["Este resultado pede atenção imediata. Não ignore — seja seu próprio parceiro de desenvolvimento.","Converse com seu gestor e com o RH sobre um plano de melhoria claro e com prazo definido.","Busque apoio proativo: mentoria, capacitação e acompanhamento próximo.","Registre os compromissos e revise seu progresso com regularidade."],
+  };
+  let html=`<p><span class="k">Sua leitura geral:</span> ${BANDS.find(b=>b.v===v).d}</p>`;
+  html+=`<p><span class="k">O que você pode fazer:</span></p><ul style="margin:0 0 10px;padding-left:20px">${M[v].map(x=>`<li style="font-size:14px;margin-bottom:4px">${x}</li>`).join("")}</ul>`;
+  html+=`<p><span class="k">Seu foco imediato de desenvolvimento:</span> trabalhar ${foco}.</p>`;
+  if(capped) html+=`<p class="k" style="color:var(--b1)">Atenção aos Valores (Pilar 4): a vivência da missão e da cultura APABB é fundamental para o seu reconhecimento e progressão.</p>`;
+  html+=`<p><span class="k">Próximo passo:</span> compartilhe sua autoavaliação com seu gestor e transforme estes pontos em acordos concretos no seu PDI.</p>`;
+  return html;
+}
+
+function pdiTipAuto(v){
+  if(v<=2) return "Prioridade alta para você: defina uma ação prática (70%), busque apoio/mentoria (20%) e capacitação (10%) com prazo curto.";
+  if(v===3) return "Consolide e evolua: amplie sua autonomia e busque se tornar referência nesta competência.";
+  return "Potencialize: este é um ponto forte seu — use-o como diferencial e para apoiar colegas.";
+}
+
+/* Recomendações personalizadas de cursos LMS para autoavaliação */
+function renderAutoRecomendacoes(allComps, totalScore) {
+  if(typeof LMS_COURSES==="undefined"||typeof COMP_TO_CAT==="undefined") return "";
+  // Mapear competências do formulário para chaves do COMP_TO_CAT
+  const compKeyMap={
+    "Comunicação":"comunicacao","Comunicação Efetiva":"comunicacao","Comunicação e Relacionamento":"comunicacao",
+    "Trabalho em Equipe":"trabalho_equipe","Colaboração":"trabalho_equipe","Trabalho em Equipe e Colaboração":"trabalho_equipe",
+    "Proatividade":"proatividade","Proatividade e Protagonismo":"proatividade","Protagonismo":"proatividade",
+    "Ética":"etica","Missão Social e Ética":"etica","Compliance":"etica",
+    "Fit Cultural":"fit_cultural","Fit Cultural / Valores":"fit_cultural","Aderência aos Valores":"fit_cultural","Valores":"fit_cultural",
+    "Atendimento":"atendimento","Relacionamento com Beneficiários":"atendimento","Atendimento Humanizado":"atendimento",
+    "Liderança":"lideranca","Gestão de Pessoas":"lideranca","Gestão de Equipes":"lideranca",
+    "Gestão":"gestao","Planejamento":"gestao","Gestão de Processos":"gestao",
+    "Resultados":"resultados","Resultados e Entregas":"resultados","Entrega de Resultados":"resultados",
+    "Inteligência Emocional":"proatividade","Adaptabilidade":"proatividade","Resiliência":"proatividade",
+  };
+  // Coletar competências com nota abaixo de 80% (score 1–5 → abaixo de 4)
+  const catScores={};
+  allComps.forEach(({c,v})=>{
+    // Encontrar a chave no mapa (busca parcial)
+    let key=null;
+    for(const [label,k] of Object.entries(compKeyMap)){
+      if(c===label||c.toLowerCase().includes(label.toLowerCase())||label.toLowerCase().includes(c.toLowerCase())){key=k;break;}
+    }
+    if(!key) key="desenvolvimento"; // fallback
+    const pct=Math.round((v/5)*100);
+    if(!catScores[key]||catScores[key]>pct) catScores[key]=pct; // menor nota por categoria
+  });
+
+  // Para cada competência-chave identificada, recomendar cursos
+  const recCourses=[];
+  const seen=new Set();
+  Object.entries(catScores).forEach(([compKey,pct])=>{
+    const cats=COMP_TO_CAT[compKey]||["desenvolvimento"];
+    let tier;
+    if(pct<60) tier="abaixo";
+    else if(pct<80) tier="medio";
+    else tier="alto";
+    cats.forEach(cat=>{
+      const curso=LMS_COURSES.find(c=>c.cat===cat&&!seen.has(c.id));
+      if(curso){
+        seen.add(curso.id);
+        recCourses.push({curso,compKey,pct,tier});
+      }
+    });
+  });
+  if(!recCourses.length) return "";
+
+  let html=`<div style="margin-top:20px;background:var(--primary-xl);border:1.5px solid var(--primary-l);border-radius:var(--radius-lg);padding:20px">
+    <div style="font-weight:800;font-size:15px;color:var(--primary);margin-bottom:4px">🎓 Recomendações Personalizadas — Universidade APABB</div>
+    <div style="font-size:12.5px;color:var(--muted);margin-bottom:16px">Baseado nas suas notas por competência nesta autoavaliação:</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">`;
+  recCourses.slice(0,6).forEach(({curso,pct,tier})=>{
+    const tierColor=tier==="abaixo"?"var(--red)":tier==="medio"?"var(--accent-d)":"var(--green)";
+    const tierBg=tier==="abaixo"?"var(--red-bg)":tier==="medio"?"var(--orange-bg)":"var(--green-bg)";
+    const tierLabel=tier==="abaixo"?"Prioridade alta":tier==="medio"?"Reforço recomendado":"Desenvolvimento contínuo";
+    html+=`<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;min-width:200px;max-width:260px;flex:1;cursor:pointer" onclick="openUniversidade()">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:4px">${curso.catLabel}</div>
+      <div style="font-weight:700;font-size:13px;color:var(--ink);margin-bottom:4px">${curso.title}</div>
+      <div style="font-size:11.5px;color:var(--muted);margin-bottom:8px">${curso.desc}</div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:${tierBg};color:${tierColor}">${tierLabel}</span>
+        <span style="font-size:10.5px;color:var(--muted)">🕐 ${curso.hours}h</span>
+      </div>
+    </div>`;
+  });
+  html+=`</div>
+    <div style="margin-top:12px;font-size:12px;color:var(--muted)">Acesse a <span style="color:var(--primary);font-weight:600;cursor:pointer" onclick="openUniversidade()">Universidade APABB</span> para ver todos os cursos disponíveis.</div>
+  </div>`;
+  return html;
+}
+
 $("#resBack").addEventListener("click",openHome);
 $("#saveBtn").addEventListener("click",()=>{
   const R=ctx.result;
@@ -3405,8 +3852,32 @@ window.show = function(id) {
   window.scrollTo({top:0, behavior:"smooth"});
 };
 document.getElementById("eligBack").addEventListener("click", openHome);
-document.getElementById("univBack").addEventListener("click", openHome);
+document.getElementById("univBack").addEventListener("click", function() {
+  // If inside a course detail, go back to course grid; otherwise go home
+  const detail = document.getElementById("univCourseDetail");
+  const grid = document.getElementById("univCoursesGrid");
+  if(detail && detail.style.display !== "none") {
+    renderUniversidadeLMS();
+  } else {
+    openHome();
+  }
+});
 document.getElementById("nineBoxBack").addEventListener("click", openHome);
+
+// LMS filter listeners
+(function() {
+  function setupLmsFilters() {
+    const univSearch = document.getElementById("univSearch");
+    if(univSearch) univSearch.addEventListener("input", function(){ renderUniversidadeLMS(); });
+    const univFilterCat = document.getElementById("univFilterCat");
+    if(univFilterCat) univFilterCat.addEventListener("change", function(){ renderUniversidadeLMS(); });
+    const univFilterLevel = document.getElementById("univFilterLevel");
+    if(univFilterLevel) univFilterLevel.addEventListener("change", function(){ renderUniversidadeLMS(); });
+    const univFilterStatus = document.getElementById("univFilterStatus");
+    if(univFilterStatus) univFilterStatus.addEventListener("change", function(){ renderUniversidadeLMS(); });
+  }
+  setupLmsFilters();
+})();
 
 /* ═══════════════════════════════════════════════════════════════
    FEATURE 2 — ELEGIBILIDADE (Promoção / Progressão Salarial)
@@ -3417,7 +3888,30 @@ function openEligibilidade() {
 }
 
 function renderEligibilidadeTable() {
-  const allPeople = ROSTER.filter(p => p.login !== "DIRETORIA" && p.login !== "FRANCISCODJALMA" && p.login !== "RONALDORIPARI");
+  // Hierarchical access control
+  let allPeople = ROSTER.filter(p => p.login !== "DIRETORIA" && p.login !== "FRANCISCODJALMA" && p.login !== "RONALDORIPARI");
+  if (USER.role === "presidente" || USER.role === "rh") {
+    // see everyone — no additional filter
+  } else if (USER.role === "diretor") {
+    // sees gestores (gerente_nucleo) + coordenadores de todas as filiais
+    allPeople = allPeople.filter(p => p.categoria === "gerencia" || p.categoria === "coordenacao");
+  } else if (USER.role === "gestor") {
+    const scope = SCOPES[USER.login];
+    if (scope) {
+      // SCOPES override: see by cargoKeys/logins
+      allPeople = allPeople.filter(p => {
+        if (scope.extra && scope.extra.includes(p.login)) return true;
+        if (scope.cargoKeys && scope.cargoKeys.includes(p.cargoKey)) {
+          return scope.allFiliais ? true : p.filial === USER.filial;
+        }
+        return false;
+      });
+    } else {
+      // regular gestor: only own filial collaborators
+      allPeople = allPeople.filter(p => p.filial === USER.filial && p.login !== USER.login);
+    }
+  }
+
   let html = `<style>
     .elig-tbl { width:100%; border-collapse:collapse; font-size:13px; }
     .elig-tbl th { background:var(--navy); color:#fff; padding:8px 10px; text-align:left; font-size:11.5px; font-weight:700; letter-spacing:.03em; }
@@ -3556,101 +4050,360 @@ const TRILHA_LABELS = {
 };
 
 function openUniversidade() {
-  // For colaboradores: show ONLY recommended trilhas (not all)
-  if (USER && USER.role === "colaborador") {
-    const myEvals = DB.evals.filter(e => e.targetLogin === USER.login).sort((a,b) => b.data.localeCompare(a.data));
-    if (myEvals.length) {
-      const latest = myEvals[0];
-      // Reconstruct a result-like object for computeTrilhasRecomendadas
-      const fakeResult = { per: {}, complete: latest.complete };
-      if (latest.pilares) {
-        fakeResult.per.p1 = { avg: latest.pilares["Resultados e Entregas"] || 0, conv: (latest.pilares["Resultados e Entregas"] || 0) };
-        fakeResult.per.p2 = { avg: latest.pilares["Competências Técnicas"] || 0, conv: (latest.pilares["Competências Técnicas"] || 0) };
-        fakeResult.per.p3 = { avg: latest.pilares["Competências Comportamentais"] || 0, conv: (latest.pilares["Competências Comportamentais"] || 0) };
-        fakeResult.per.p4 = { avg: latest.pilares["Aderência aos Valores da APABB"] || 0, conv: (latest.pilares["Aderência aos Valores da APABB"] || 0) };
-        fakeResult.per.p5 = { avg: latest.pilares["Desenvolvimento e Inovação"] || 0, conv: (latest.pilares["Desenvolvimento e Inovação"] || 0) };
-      }
-      const rec = computeTrilhasRecomendadas(fakeResult, latest.tipo);
-      renderUniversidade(rec.length ? rec : [], true /* colabMode */);
-    } else {
-      renderUniversidade([], true /* colabMode, no evals yet */);
-    }
-  } else {
-    renderUniversidade(); // gestores/rh/presidente: show all trilhas + which colaboradores were indicated
-  }
+  renderUniversidadeLMS();
   show("univScreen");
-  setSidebarActive("Universidade APABB");
+  if(typeof setSidebarActive==="function") setSidebarActive("Universidade APABB");
 }
 
-function renderUniversidade(recomendadas, colabMode) {
-  const colors = {
-    comportamental:"var(--navy)", tecnico_financeiro:"var(--teal)",
-    tecnico_rh:"var(--emerald)", tecnico_projetos:"var(--gold-d)",
-    tecnico_esporte:"var(--b4)", fit_cultural:"var(--navy-2)"
-  };
-  let html = "";
+/* ═══════════════════════════════════════════════════════════════
+   LMS — UNIVERSIDADE APABB
+═══════════════════════════════════════════════════════════════ */
+function lmsKey(courseId) { return "lms_"+(USER?USER.login:"guest")+"_"+courseId; }
+function lmsGet(courseId) { try { return JSON.parse(localStorage.getItem(lmsKey(courseId))||"null") || {status:"nao_iniciado",aulas:{},quizScore:null,startedAt:null,completedAt:null}; } catch(e){ return {status:"nao_iniciado",aulas:{},quizScore:null}; } }
+function lmsSave(courseId, data) { try { localStorage.setItem(lmsKey(courseId), JSON.stringify(data)); } catch(e){} }
 
-  // Colaborador mode: show ONLY recommended trilhas
-  if (colabMode) {
-    if (!recomendadas || !recomendadas.length) {
-      html = `<div class="card" style="text-align:center;padding:32px 24px">
-        <div style="font-size:36px;margin-bottom:12px">🎓</div>
-        <div style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px">Nenhuma trilha indicada ainda</div>
-        <p style="font-size:13px;color:var(--muted);max-width:400px;margin:0 auto">Após sua avaliação, as recomendações aparecerão aqui com base nas competências identificadas para desenvolvimento.</p>
-      </div>`;
-    } else {
-      html += `<div class="card" style="border:2px solid var(--gold);margin-bottom:20px;padding:18px">
-        <div class="blocktitle" style="margin-top:0;color:var(--gold-d)">⭐ Suas Trilhas Recomendadas</div>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Baseado nas competências identificadas para desenvolvimento na sua última avaliação:</p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px">`;
-      recomendadas.forEach(t => {
-        html += `<div style="background:var(--gold-bg);border:1px solid var(--gold);border-radius:10px;padding:12px 16px;min-width:200px;max-width:300px">
-          <div style="font-weight:700;font-size:13px">${t.nome}</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:4px">${t.desc}</div>
-          <span style="display:inline-block;margin-top:8px;padding:2px 8px;background:var(--gold);border-radius:99px;font-size:10px;font-weight:700;color:var(--ink)">${t.tag}</span>
-        </div>`;
-      });
-      html += `</div></div>`;
+function lmsProgress(courseId) {
+  const c = LMS_COURSES.find(x=>x.id===courseId); if(!c) return 0;
+  const d = lmsGet(courseId);
+  const totalAulas = c.modules.reduce((s,m)=>s+m.aulas.length,0);
+  const done = Object.values(d.aulas||{}).filter(Boolean).length;
+  return totalAulas ? Math.round(done/totalAulas*100) : 0;
+}
+
+function catIcon(cat) {
+  const icons = {integracao:"🏛️",lideranca:"👑",rh:"👥",atendimento:"🤝",servico_social:"❤️",esporte:"⚽",captacao:"💰",financeiro:"📊",compliance:"⚖️",diversidade:"🌈",desenvolvimento:"🧠",tecnologia:"💻"};
+  return icons[cat] || "📚";
+}
+
+function lmsStatusLabel(status) {
+  if(status==="concluido") return {label:"Concluído",cls:"concluido"};
+  if(status==="em_andamento") return {label:"Em andamento",cls:"em_andamento"};
+  return {label:"Não iniciado",cls:"nao_iniciado"};
+}
+
+function renderUniversidadeLMS(filterCat, filterLevel, filterStatus, searchTerm) {
+  const grid = document.getElementById("univCoursesGrid");
+  const detail = document.getElementById("univCourseDetail");
+  if(!grid) return;
+  if(detail) detail.style.display = "none";
+  grid.style.display = "grid";
+
+  // Stats do cabeçalho
+  const statsEl = document.getElementById("univHeaderStats");
+  if(statsEl) {
+    const concluidos = LMS_COURSES.filter(c=>lmsGet(c.id).status==="concluido").length;
+    const emAndamento = LMS_COURSES.filter(c=>lmsGet(c.id).status==="em_andamento").length;
+    const horasTotal = LMS_COURSES.filter(c=>lmsGet(c.id).status==="concluido").reduce((s,c)=>s+c.hours,0);
+    statsEl.innerHTML = `
+      <div class="univ-stat"><div class="univ-stat-val">${concluidos}</div><div class="univ-stat-lbl">Concluídos</div></div>
+      <div class="univ-stat"><div class="univ-stat-val">${emAndamento}</div><div class="univ-stat-lbl">Em andamento</div></div>
+      <div class="univ-stat"><div class="univ-stat-val">${horasTotal}h</div><div class="univ-stat-lbl">Horas estudadas</div></div>
+    `;
+  }
+
+  // Filtros
+  const fCat    = filterCat    || (document.getElementById("univFilterCat")?document.getElementById("univFilterCat").value:"");
+  const fLevel  = filterLevel  || (document.getElementById("univFilterLevel")?document.getElementById("univFilterLevel").value:"");
+  const fStatus = filterStatus || (document.getElementById("univFilterStatus")?document.getElementById("univFilterStatus").value:"");
+  const fSearch = searchTerm   || (document.getElementById("univSearch")?document.getElementById("univSearch").value:"");
+
+  let courses = LMS_COURSES;
+  if(fCat)    courses = courses.filter(c=>c.cat===fCat);
+  if(fLevel)  courses = courses.filter(c=>c.level===fLevel);
+  if(fSearch) courses = courses.filter(c=>c.title.toLowerCase().includes(fSearch.toLowerCase())||c.desc.toLowerCase().includes(fSearch.toLowerCase()));
+  if(fStatus) courses = courses.filter(c=>lmsGet(c.id).status===fStatus);
+
+  // Para colaborador: priorizar recomendados com base em autoavaliações salvas
+  let recomendados = [];
+  if(USER && USER.role==="colaborador") {
+    const autoEvals = DB.evals.filter(e=>e.targetLogin===USER.login&&e.tipo==="auto").sort((a,b)=>b.data.localeCompare(a.data));
+    if(autoEvals.length) {
+      try {
+        const latest = autoEvals[0];
+        const allComps = [];
+        if(latest.pilares) {
+          Object.entries(latest.pilares).forEach(([k,v])=>{ if(v!=null) allComps.push({c:k,v:v}); });
+        }
+        const compKeyMap={
+          "Competências Comportamentais":"comunicacao","Comunicação Efetiva":"comunicacao",
+          "Trabalho em Equipe e Colaboração":"trabalho_equipe","Proatividade e Protagonismo":"proatividade",
+          "Aderência aos Valores da APABB":"fit_cultural","Resultados e Entregas":"resultados",
+          "Competências Técnicas":"tecnico","Desenvolvimento e Inovação":"proatividade"
+        };
+        allComps.filter(({v})=>v<3).forEach(({c})=>{
+          const k = compKeyMap[c]||"desenvolvimento";
+          (COMP_TO_CAT[k]||[]).forEach(cat=>{ if(!recomendados.includes(cat)) recomendados.push(cat); });
+        });
+      } catch(e){}
     }
-    document.getElementById("univContent").innerHTML = html;
+  }
+
+  if(!courses.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--muted)"><div style="font-size:40px;margin-bottom:12px">📚</div><p>Nenhum curso encontrado com os filtros selecionados.</p></div>`;
     return;
   }
 
-  // Gestor / RH / Presidente mode: show recommended banner (if passed) + all trilhas
-  if (recomendadas && recomendadas.length) {
-    html += `<div class="card" style="border:2px solid var(--gold);margin-bottom:20px;padding:18px">
-      <div class="blocktitle" style="margin-top:0;color:var(--gold-d)">⭐ Trilhas Recomendadas para este Colaborador</div>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Baseado nas competências com menor nota nesta avaliação:</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px">`;
-    recomendadas.forEach(t => {
-      html += `<div style="background:var(--gold-bg);border:1px solid var(--gold);border-radius:10px;padding:10px 14px;min-width:200px;max-width:280px">
-        <div style="font-weight:700;font-size:13px">${t.nome}</div>
-        <div style="font-size:11.5px;color:var(--muted);margin-top:3px">${t.desc}</div>
-        <span style="display:inline-block;margin-top:6px;padding:2px 8px;background:var(--gold);border-radius:99px;font-size:10px;font-weight:700;color:var(--ink)">${t.tag}</span>
-      </div>`;
-    });
-    html += `</div></div>`;
-  }
-  Object.entries(TRILHAS).forEach(([cat, trilhas]) => {
-    const cor = colors[cat] || "var(--navy)";
-    html += `<div class="block" style="margin-bottom:14px">
-      <div class="bhead" style="background:${cor}15;border-left:4px solid ${cor}">
-        <span class="btitle" style="color:${cor}">${TRILHA_LABELS[cat]||cat}</span>
-        <span class="bavg" style="background:${cor};color:#fff">${trilhas.length} trilhas</span>
-        <span class="chev">▾</span>
+  grid.innerHTML = courses.map(c=>{
+    const prog = lmsProgress(c.id);
+    const d = lmsGet(c.id);
+    const st = lmsStatusLabel(d.status);
+    const totalAulas = c.modules.reduce((s,m)=>s+m.aulas.length,0);
+    const doneAulas = Object.values(d.aulas||{}).filter(Boolean).length;
+    const isRec = recomendados.includes(c.cat);
+    return `<div class="course-card" onclick="openCourse('${c.id}')">
+      <div class="course-card-thumb">
+        ${catIcon(c.cat)}
+        <span class="course-card-level ${c.level}">${c.level==="basico"?"Básico":c.level==="intermediario"?"Intermediário":"Avançado"}</span>
+        ${isRec?'<span style="position:absolute;top:10px;left:10px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px">⭐ Recomendado</span>':""}
       </div>
-      <div class="bbody" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;padding:14px">`;
-    trilhas.forEach(t => {
-      html += `<div style="background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
-        <div style="font-weight:700;font-size:13px;color:var(--ink)">${t.nome}</div>
-        <div style="font-size:12px;color:var(--muted);margin:4px 0 8px">${t.desc}</div>
-        <span style="display:inline-block;padding:2px 8px;background:${cor}20;color:${cor};border-radius:99px;font-size:10.5px;font-weight:700">${t.tag}</span>
-      </div>`;
+      <div class="course-card-body">
+        <div class="course-card-cat">${c.catLabel}</div>
+        <div class="course-card-title">${c.title}</div>
+        <div class="course-card-desc">${c.desc}</div>
+        <div class="course-card-meta">
+          <span>🕐 ${c.hours}h</span>
+          <span>📖 ${totalAulas} aulas</span>
+          ${c.cert?'<span>🏆 Certificado</span>':""}
+        </div>
+      </div>
+      <div class="course-card-footer">
+        ${prog>0?`<div class="course-progress-bar"><div class="course-progress-fill" style="width:${prog}%"></div></div><div class="course-progress-label"><span>${doneAulas}/${totalAulas} aulas</span><span>${prog}%</span></div>`:""}
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:${prog>0?'8px':'0'}">
+          <span class="course-status-badge ${st.cls}">${st.label}</span>
+          <span style="font-size:11px;color:var(--muted)">por ${c.instructor}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+let _currentCourse = null;
+let _currentAula = null;
+const _quizAnswers = {};
+
+function openCourse(courseId) {
+  const c = LMS_COURSES.find(x=>x.id===courseId);
+  if(!c) return;
+  _currentCourse = c;
+  const d = lmsGet(courseId);
+  if(d.status==="nao_iniciado") { d.status="em_andamento"; d.startedAt=new Date().toISOString(); lmsSave(courseId,d); }
+
+  document.getElementById("univCoursesGrid").style.display = "none";
+  document.getElementById("univCourseDetail").style.display = "block";
+
+  const prog = lmsProgress(courseId);
+  const totalAulas = c.modules.reduce((s,m)=>s+m.aulas.length,0);
+  const doneAulas = Object.values(d.aulas||{}).filter(Boolean).length;
+
+  // Primeira aula não vista
+  let firstAula = null;
+  for(const m of c.modules) for(const a of m.aulas) { if(!d.aulas[a.id] && !firstAula) firstAula=a; }
+  if(!firstAula) firstAula = c.modules[0].aulas[0];
+
+  document.getElementById("univCourseDetailContent").innerHTML = `
+    <div class="course-detail-header">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+        <span style="font-size:36px">${catIcon(c.cat)}</span>
+        <div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">${c.catLabel}</div>
+          <h2 style="font-size:22px;font-weight:800;color:#fff;margin:0;letter-spacing:-0.02em">${c.title}</h2>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,0.8);font-size:13.5px;margin:0 0 16px">${c.desc}</p>
+      <div style="display:flex;gap:20px;flex-wrap:wrap">
+        <span style="font-size:12px;color:rgba(255,255,255,0.7)">🕐 ${c.hours}h de conteúdo</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.7)">📖 ${totalAulas} aulas</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.7)">👤 ${c.instructor}</span>
+        ${c.cert?'<span style="font-size:12px;color:rgba(255,255,255,0.7)">🏆 Certificado incluído</span>':""}
+      </div>
+      <div style="margin-top:14px">
+        <div style="background:rgba(255,255,255,0.15);border-radius:999px;height:8px;overflow:hidden">
+          <div style="height:100%;width:${prog}%;background:#fff;border-radius:999px;transition:width .4s"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:12px;color:rgba(255,255,255,0.7)">
+          <span>${doneAulas} de ${totalAulas} aulas concluídas</span><span>${prog}%</span>
+        </div>
+      </div>
+    </div>
+    <div class="course-detail-body">
+      <div>
+        <div class="course-video-panel" id="courseVideoPanel">
+          <div class="course-video-wrap">
+            <iframe id="courseYtFrame" src="https://www.youtube.com/embed/${firstAula.yt}?rel=0" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="course-video-info">
+            <div style="font-weight:700;font-size:14px;margin-bottom:4px" id="courseAulaTitle">${firstAula.title}</div>
+            <div style="font-size:12px;color:var(--muted)" id="courseAulaDur">⏱ ${firstAula.dur}</div>
+            <button class="btn btn-accent" style="margin-top:12px" onclick="markAulaDone('${courseId}','${firstAula.id}')">✅ Marcar como concluída</button>
+          </div>
+        </div>
+        <div class="course-modules" style="margin-top:16px" id="courseModulesList">
+          ${c.modules.map((m,mi)=>`
+            <div class="course-module-header">📁 Módulo ${mi+1}: ${m.title}</div>
+            ${m.aulas.map(a=>`
+              <div class="course-aula-item ${d.aulas[a.id]?'done':''} ${a.id===firstAula.id?'active':''}" id="aula_${a.id}" onclick="playAula('${courseId}','${a.id}')">
+                <span class="course-aula-icon">${d.aulas[a.id]?'✅':'▶️'}</span>
+                <span style="flex:1">${a.title}</span>
+                <span style="font-size:11px;color:var(--muted)">${a.dur}</span>
+              </div>
+            `).join("")}
+          `).join("")}
+        </div>
+        ${prog===100 ? renderQuiz(courseId) : `<div style="padding:16px;text-align:center;color:var(--muted);font-size:13px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);margin-top:16px">Conclua todas as aulas para liberar a avaliação final e o certificado 🏆</div>`}
+      </div>
+      <div>
+        <div class="course-sidebar-card">
+          <div style="font-weight:700;font-size:14px;margin-bottom:12px">📊 Seu progresso</div>
+          ${[
+            ["📖","Aulas",`${doneAulas}/${totalAulas}`],
+            ["⏱","Duração total",`${c.hours}h`],
+            ["📅","Iniciado",d.startedAt?new Date(d.startedAt).toLocaleDateString("pt-BR"):"—"],
+            ["✅","Status",d.status==="concluido"?"Concluído":d.status==="em_andamento"?"Em andamento":"Não iniciado"],
+            d.quizScore!=null?["🏆","Nota final",`${d.quizScore}%`]:null
+          ].filter(Boolean).map(([ic,lb,vl])=>`<div class="course-sidebar-stat"><span>${ic}</span><span style="flex:1;color:var(--muted)">${lb}</span><span style="font-weight:600">${vl}</span></div>`).join("")}
+          ${d.status!=="concluido"?`<button class="btn btn-primary" style="width:100%;margin-top:14px;justify-content:center" onclick="playAula('${courseId}','${firstAula.id}')">▶ ${doneAulas>0?"Continuar":"Começar"}</button>`:`<div class="cert-block"><div style="font-size:32px">🏆</div><div style="font-weight:700;color:var(--primary);margin:8px 0">Parabéns!</div><div style="font-size:12px;color:var(--muted);margin-bottom:12px">Você concluiu este curso</div><button class="btn btn-accent" style="width:100%;justify-content:center" onclick="downloadCert('${courseId}')">⬇ Baixar Certificado</button></div>`}
+        </div>
+      </div>
+    </div>
+    <div class="btn-row" style="margin-top:16px">
+      <button class="btn btn-ghost" onclick="renderUniversidadeLMS()">← Voltar aos cursos</button>
+    </div>
+  `;
+  _currentAula = firstAula;
+}
+
+function playAula(courseId, aulaId) {
+  const c = LMS_COURSES.find(x=>x.id===courseId); if(!c) return;
+  let aula = null;
+  for(const m of c.modules) for(const a of m.aulas) if(a.id===aulaId) aula=a;
+  if(!aula) return;
+  _currentAula = aula;
+  const frame = document.getElementById("courseYtFrame");
+  const title = document.getElementById("courseAulaTitle");
+  const dur = document.getElementById("courseAulaDur");
+  if(frame) frame.src = "https://www.youtube.com/embed/"+aula.yt+"?rel=0&autoplay=1";
+  if(title) title.textContent = aula.title;
+  if(dur) dur.textContent = "⏱ " + aula.dur;
+  document.querySelectorAll(".course-aula-item").forEach(el=>el.classList.remove("active"));
+  const el = document.getElementById("aula_"+aulaId);
+  if(el) { el.classList.add("active"); el.scrollIntoView({behavior:"smooth",block:"nearest"}); }
+  // Botão marcar
+  const btn = document.querySelector("#courseVideoPanel .btn-accent");
+  if(btn) btn.setAttribute("onclick","markAulaDone('"+courseId+"','"+aulaId+"')");
+}
+
+function markAulaDone(courseId, aulaId) {
+  const d = lmsGet(courseId);
+  d.aulas[aulaId] = true;
+  const c = LMS_COURSES.find(x=>x.id===courseId);
+  const totalAulas = c.modules.reduce((s,m)=>s+m.aulas.length,0);
+  const done = Object.values(d.aulas).filter(Boolean).length;
+  if(done >= totalAulas && d.status!=="concluido") d.status = "em_andamento";
+  lmsSave(courseId, d);
+  const el = document.getElementById("aula_"+aulaId);
+  if(el) { el.querySelector(".course-aula-icon").textContent="✅"; el.classList.add("done"); }
+  const prog = lmsProgress(courseId);
+  if(prog===100) setTimeout(()=>openCourse(courseId),300);
+}
+
+function renderQuiz(courseId) {
+  const c = LMS_COURSES.find(x=>x.id===courseId); if(!c||!c.quiz||!c.quiz.length) return "";
+  const d = lmsGet(courseId);
+  if(d.status==="concluido") return `<div class="course-quiz-wrap" style="margin-top:16px"><div style="text-align:center;padding:16px"><div style="font-size:32px">🏆</div><div style="font-weight:700;font-size:15px;margin:8px 0">Avaliação concluída!</div><div style="color:var(--green);font-weight:600">Nota: ${d.quizScore}%</div></div></div>`;
+  return `<div class="course-quiz-wrap" style="margin-top:16px">
+    <div style="font-weight:700;font-size:16px;margin-bottom:4px">📝 Avaliação Final</div>
+    <div style="color:var(--muted);font-size:12.5px;margin-bottom:20px">Nota mínima: 70% para obter o certificado</div>
+    <div id="quizContent_${courseId}">
+      ${c.quiz.map((q,qi)=>`
+        <div style="margin-bottom:20px">
+          <div class="quiz-question">Q${qi+1}. ${q.q}</div>
+          ${q.opts.map((opt,oi)=>`
+            <div class="quiz-option" id="qopt_${courseId}_${qi}_${oi}" onclick="selectQuizOpt('${courseId}',${qi},${oi},${q.correct})">
+              <span style="width:22px;height:22px;border-radius:50%;border:2px solid var(--border-2);display:grid;place-items:center;font-size:11px;flex-shrink:0">${String.fromCharCode(65+oi)}</span>
+              ${opt}
+            </div>
+          `).join("")}
+        </div>
+      `).join("")}
+      <button class="btn btn-primary" onclick="submitQuiz('${courseId}')" style="margin-top:8px">Enviar avaliação →</button>
+    </div>
+  </div>`;
+}
+
+function selectQuizOpt(courseId, qi, oi, correct) {
+  if(!_quizAnswers[courseId]) _quizAnswers[courseId] = {};
+  _quizAnswers[courseId][qi] = oi;
+  const c = LMS_COURSES.find(x=>x.id===courseId);
+  for(let o=0; o<c.quiz[qi].opts.length; o++) {
+    const el = document.getElementById("qopt_"+courseId+"_"+qi+"_"+o);
+    if(el) { el.classList.remove("selected","correct","wrong"); if(o===oi) el.classList.add("selected"); }
+  }
+}
+
+function submitQuiz(courseId) {
+  const c = LMS_COURSES.find(x=>x.id===courseId); if(!c) return;
+  const answers = _quizAnswers[courseId] || {};
+  let correct = 0;
+  c.quiz.forEach((q,qi)=>{ if(answers[qi]===q.correct) correct++; });
+  const score = Math.round(correct/c.quiz.length*100);
+  c.quiz.forEach((q,qi)=>{
+    q.opts.forEach((_,oi)=>{
+      const el = document.getElementById("qopt_"+courseId+"_"+qi+"_"+oi);
+      if(el) { el.classList.remove("selected"); if(oi===q.correct) el.classList.add("correct"); else if(oi===answers[qi]) el.classList.add("wrong"); }
     });
-    html += `</div></div>`;
   });
-  document.getElementById("univContent").innerHTML = html;
-  document.querySelectorAll("#univContent .bhead").forEach(hd => hd.addEventListener("click", () => hd.closest(".block").classList.toggle("collapsed")));
+  const d = lmsGet(courseId);
+  d.quizScore = score;
+  if(score >= 70) { d.status = "concluido"; d.completedAt = new Date().toISOString(); }
+  lmsSave(courseId, d);
+  const qc = document.getElementById("quizContent_"+courseId);
+  if(qc) {
+    const resultMsg = score>=70
+      ? `<div style="background:var(--green-bg);border:1px solid var(--green);border-radius:var(--radius-lg);padding:20px;text-align:center;margin-top:16px"><div style="font-size:32px">🏆</div><div style="font-weight:700;font-size:16px;color:var(--green);margin:8px 0">Aprovado! Nota: ${score}%</div><div style="color:var(--muted);font-size:13px;margin-bottom:12px">Parabéns! Seu certificado foi gerado.</div><button class="btn btn-accent" onclick="downloadCert('${courseId}')">⬇ Baixar Certificado</button></div>`
+      : `<div style="background:var(--red-bg);border:1px solid var(--red);border-radius:var(--radius-lg);padding:20px;text-align:center;margin-top:16px"><div style="font-size:32px">😕</div><div style="font-weight:700;font-size:16px;color:var(--red);margin:8px 0">Nota: ${score}% — mínimo 70%</div><div style="color:var(--muted);font-size:13px;margin-bottom:12px">Revise o conteúdo e tente novamente.</div><button class="btn btn-ghost" onclick="openCourse('${courseId}')">↩ Tentar novamente</button></div>`;
+    qc.insertAdjacentHTML("beforeend", resultMsg);
+    const submitBtn = qc.querySelector("button[onclick^='submitQuiz']");
+    if(submitBtn) submitBtn.remove();
+  }
+}
+
+function downloadCert(courseId) {
+  const c = LMS_COURSES.find(x=>x.id===courseId); if(!c) return;
+  const d = lmsGet(courseId);
+  const dataConc = d.completedAt ? new Date(d.completedAt).toLocaleDateString("pt-BR",{day:"2-digit",month:"long",year:"numeric"}) : new Date().toLocaleDateString("pt-BR",{day:"2-digit",month:"long",year:"numeric"});
+  const userName = USER ? USER.nome : "Colaborador";
+  const certHtml = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Certificado APABB</title>
+  <style>
+    @page{margin:0;size:A4 landscape}
+    body{margin:0;padding:0;font-family:'Segoe UI',Arial,sans-serif;background:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh}
+    .cert{width:277mm;height:190mm;border:3px solid #1B3A8C;border-radius:12px;padding:36px 48px;box-sizing:border-box;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#f5f7ff 0%,#fff8f0 100%)}
+    .cert-top{width:100%;display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
+    .cert-logo{font-size:32px;font-weight:900;color:#1B3A8C;letter-spacing:-1px}
+    .cert-logo span{color:#E8650A}
+    .cert-badge{width:56px;height:56px;border-radius:50%;background:#1B3A8C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px}
+    h1{font-size:13px;text-transform:uppercase;letter-spacing:0.2em;color:#6B7A99;margin:0 0 10px}
+    h2{font-size:32px;font-weight:800;color:#0D1526;margin:0 0 16px;letter-spacing:-1px}
+    .cert-course{font-size:20px;font-weight:700;color:#1B3A8C;margin-bottom:8px}
+    .cert-desc{font-size:13px;color:#6B7A99;margin-bottom:20px}
+    .cert-date{font-size:13px;color:#6B7A99}
+    .cert-hr{width:200px;height:3px;background:linear-gradient(90deg,#1B3A8C,#E8650A);border-radius:2px;margin:16px auto}
+    .cert-note{font-size:11px;color:#9BA8C0;margin-top:16px}
+    .cert-score{display:inline-block;background:#f0f7ff;border:2px solid #1B3A8C;border-radius:8px;padding:6px 16px;font-size:13px;font-weight:700;color:#1B3A8C;margin-top:8px}
+  </style></head><body>
+  <div class="cert">
+    <div class="cert-top"><div class="cert-logo">AP<span>A</span>BB</div><div class="cert-badge">🏆</div></div>
+    <h1>Certificado de Conclusão</h1>
+    <h2>${userName}</h2>
+    <div class="cert-hr"></div>
+    <div class="cert-course">${c.title}</div>
+    <div class="cert-desc">${c.catLabel} · ${c.hours} horas · ${c.level==="basico"?"Básico":c.level==="intermediario"?"Intermediário":"Avançado"}</div>
+    ${d.quizScore!=null?`<div class="cert-score">Nota Final: ${d.quizScore}%</div>`:""}
+    <div class="cert-date">Concluído em ${dataConc}</div>
+    <div class="cert-note">Universidade APABB — Associação de Pais e Amigos dos Atletas do Brasil</div>
+  </div>
+  <script>window.onload=function(){window.print();}<\/script></body></html>`;
+  const w = window.open("","_blank");
+  if(w) { w.document.write(certHtml); w.document.close(); }
 }
 
 /* Compute trilhas recomendadas from eval result */
@@ -3995,19 +4748,21 @@ window.showResult = function() {
   document.getElementById("aiResumoContent").innerHTML = resumo;
   aiBlock.style.display = "block";
 
-  // Show trilhas recomendadas in PDI section
-  const trilhas = computeTrilhasRecomendadas(ctx.result, ctx.tipo);
-  const trilhasEl = document.getElementById("pdiTrilhas");
-  if (trilhasEl && trilhas.length) {
-    let th = `<div style="margin-top:14px"><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px">Trilhas Recomendadas (Universidade APABB)</div><div style="display:flex;flex-wrap:wrap;gap:8px">`;
-    trilhas.forEach(t => {
-      th += `<div style="background:var(--navy-4);border:1px solid var(--navy-3);border-radius:8px;padding:8px 12px;min-width:160px;max-width:240px">
-        <div style="font-size:12.5px;font-weight:700;color:var(--navy)">${t.nome}</div>
-        <div style="font-size:11.5px;color:var(--muted)">${t.desc}</div>
-      </div>`;
-    });
-    th += `</div></div>`;
-    trilhasEl.innerHTML = th;
+  // Show trilhas recomendadas in PDI section — skip for autoavaliação (handled by renderAutoRecomendacoes)
+  if (ctx.tipo !== "auto") {
+    const trilhas = computeTrilhasRecomendadas(ctx.result, ctx.tipo);
+    const trilhasEl = document.getElementById("pdiTrilhas");
+    if (trilhasEl && trilhas.length) {
+      let th = `<div style="margin-top:14px"><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px">Trilhas Recomendadas (Universidade APABB)</div><div style="display:flex;flex-wrap:wrap;gap:8px">`;
+      trilhas.forEach(t => {
+        th += `<div style="background:var(--navy-4);border:1px solid var(--navy-3);border-radius:8px;padding:8px 12px;min-width:160px;max-width:240px">
+          <div style="font-size:12.5px;font-weight:700;color:var(--navy)">${t.nome}</div>
+          <div style="font-size:11.5px;color:var(--muted)">${t.desc}</div>
+        </div>`;
+      });
+      th += `</div></div>`;
+      trilhasEl.innerHTML = th;
+    }
   }
 };
 
