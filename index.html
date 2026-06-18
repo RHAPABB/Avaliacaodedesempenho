@@ -11,50 +11,69 @@
    DESIGN TOKENS — APABB Avaliação de Desempenho 360º
 ═══════════════════════════════════════════════════════════ */
 :root {
-  /* Core */
-  --navy:     #1E3694;
-  --navy-d:   #152970;
-  --navy-2:   #2847C0;
-  --navy-3:   #5B7FE8;
-  --navy-4:   #EEF2FC;
+  /* APABB Brand */
+  --primary:    #1B3A8C;
+  --primary-d:  #122970;
+  --primary-m:  #2952C4;
+  --primary-l:  #4A72D9;
+  --primary-xl: #EEF3FC;
+  --accent:     #E8650A;
+  --accent-d:   #C0530A;
+  --accent-l:   #FFF1E8;
+
+  /* Legacy aliases (mantidos para compatibilidade com JS/CSS existente) */
+  --navy:     var(--primary);
+  --navy-d:   var(--primary-d);
+  --navy-2:   var(--primary-m);
+  --navy-3:   var(--primary-l);
+  --navy-4:   var(--primary-xl);
   --gold:     #F0C13F;
   --gold-d:   #C8860B;
   --gold-bg:  #FEF9EC;
   --teal:     #028090;
   --teal-bg:  #E6F6F8;
 
-  /* Neutral */
-  --bg:       #F4F6FB;
-  --surface:  #FFFFFF;
-  --surface-2:#F8FAFF;
-  --border:   #E4E9F4;
-  --border-2: #CBD5E8;
-  --ink:      #0F172A;
-  --ink-2:    #334155;
-  --muted:    #64748B;
-  --muted-2:  #94A3B8;
+  /* Neutros */
+  --bg:         #F5F7FA;
+  --surface:    #FFFFFF;
+  --surface-2:  #F9FAFB;
+  --border:     #E5E9F0;
+  --border-2:   #CBD3E2;
+  --ink:        #0D1526;
+  --ink-2:      #2D3B55;
+  --muted:      #6B7A99;
+  --muted-2:    #9BA8C0;
 
-  /* Status */
-  --red:      #DC2626; --red-bg:   #FEF2F2;
-  --orange:   #D97706; --orange-bg:#FFFBEB;
-  --amber:    #CA8A04; --amber-bg: #FEFCE8;
-  --green:    #16A34A; --green-bg: #F0FDF4;
-  --emerald:  #059669; --emerald-bg:#ECFDF5;
+  /* Semânticos */
+  --red:        #D93025; --red-bg:    #FEF2F2;
+  --orange:     #E8650A; --orange-bg: #FFF1E8;
+  --amber:      #C48A00; --amber-bg:  #FFFBEB;
+  --green:      #1A8A4A; --green-bg:  #F0FDF4;
+  --emerald:    #0A7A6A; --emerald-bg:#ECFDF5;
   --b1:var(--red);   --b1bg:var(--red-bg);
   --b2:var(--orange);--b2bg:var(--orange-bg);
   --b3:var(--amber); --b3bg:var(--amber-bg);
   --b4:var(--green); --b4bg:var(--green-bg);
   --b5:var(--emerald);--b5bg:var(--emerald-bg);
 
-  /* Effects */
-  --radius-sm: 8px;
-  --radius:    14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
-  --shadow-xs: 0 1px 2px rgba(14,30,80,.04);
-  --shadow-sm: 0 1px 3px rgba(14,30,80,.06), 0 4px 16px rgba(14,30,80,.05);
-  --shadow:    0 2px 8px rgba(14,30,80,.07), 0 12px 32px rgba(14,30,80,.06);
-  --shadow-lg: 0 8px 24px rgba(14,30,80,.10), 0 24px 64px rgba(14,30,80,.08);
+  /* Efeitos */
+  --radius-sm:  6px;
+  --radius:     12px;
+  --radius-lg:  18px;
+  --radius-xl:  24px;
+  --shadow-xs:  0 1px 2px rgba(13,21,38,.04);
+  --shadow-sm:  0 1px 4px rgba(13,21,38,.07), 0 4px 12px rgba(13,21,38,.05);
+  --shadow:     0 2px 8px rgba(13,21,38,.08), 0 12px 28px rgba(13,21,38,.06);
+  --shadow-lg:  0 8px 24px rgba(13,21,38,.10), 0 24px 56px rgba(13,21,38,.08);
+
+  /* Sidebar tokens */
+  --sb-width: 248px;
+  --sb-bg: #111C3A;
+  --sb-text: rgba(255,255,255,0.75);
+  --sb-active-bg: var(--accent);
+  --sb-active-text: #ffffff;
+  --sb-hover-bg: rgba(255,255,255,0.07);
+  --sb-group: rgba(255,255,255,0.35);
 
   /* APABB logo background */
   --logo:url("data:image/jpeg;base64,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a5aTLDp5Yukrn852DA/dga33jsTv1AHRzOnb+rc/pvK/xDbprN0MnBcyGVfLAXNjjO74Y5Inc8wkBLfeDWgEkjfovoYPUGkdZZGWrpBurdP5DISZWqYp4W2sXak270BszmtcxzhztLSC0l24O+6sYp8WVjPT2evXl4Z+xD7fDjfHn/v9+J9Udc6rrUdB5XUVOpjq+YqWX5mq6u/vYDFWkma9nve7zcg3Y4EjmA8d1tvD92srFe1kdWuoQi6WTUqFeMh9GMg/kpHn6bwOXcjYc3Nt02XR1Fgsrqe9pC7dox0Y6dqSxkqzp2y7MMLw2LcDZ27yzfbpsD1W7KtWnDhSill8+7d/vwwT0oS4m23hfZEY6pr6gn47YBkGbq1axw199VjaPO+MB9USc7nP2dzHbbYDYN2677r5y2a1BksVmclX1zS0visHYkpvvy45krrE0XSV72vOzWB+7Wtb7x2J36gDP2sPmbfGDH551WCLEY/EWKrZjPvJLLNJE7YM26NAj8Seu/gta/gPUGkdY5KWppFurNPZHIPytUxzxNtYy3IB3oDZnNa5jnDmaWkFu7uh8VPCUWorbKXd1fXbOOvzI5xkm2s4b7+ndvjw+R8Y3JZnOZXhNmNQ44Y7K2WXZbNcAjkcajuux6t3Gx5T1G+x6hZnG53WU9XXOOhbj72Xw1wV8W4QujZJ3leKWMyjmO+xk94gjcA7ALm1Fj9T5LPaJ1FXxUET8dPO7I0X3BzMZNCY/deBs4tJB28DtsD5rrMxmtsRndfXMRj8dYOWdFZw8s1rZombXihLZW7bgAs5uhO4BHTdfG4SXZy5dPb5e5+4RUot8+f/AMr6o+6eX1RNrCrpmvm6F+3SEc+emjx3JBWjcN2xN/KEiWToWgk8rN3HxaHSAop03idd6c0zVwOD05TZasWm2MtmLeTa6SaV72mxOWNbu97huG7kbANHUDZSsq9ykmsYx3Y9+3wJqDbTzn4+7cIiKsThERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREB//2Q==");
@@ -167,41 +186,32 @@ header.app {
    LAYOUT
 ═══════════════════════════════════════════════════════════ */
 main {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 26px 28px 72px;
+  max-width: 1200px;
+  padding: 28px 32px 72px;
 }
 .page-header {
   margin-bottom: 22px;
 }
 .page-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--navy-2);
-  margin-bottom: 5px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
 }
 .page-kicker::before {
-  content: '';
-  width: 6px; height: 6px;
-  background: var(--gold);
-  border-radius: 2px;
-  transform: rotate(45deg);
+  content:''; width:5px; height:5px;
+  background:var(--accent); border-radius:2px; transform:rotate(45deg);
 }
 .page-title {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   color: var(--ink);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
 }
 .page-lead {
-  font-size: 13px;
+  font-size: 13.5px;
   color: var(--muted);
-  margin-top: 4px;
+  line-height: 1.6;
 }
 /* Home — discrete greeting */
 .home-head {
@@ -222,15 +232,62 @@ main {
   margin-top: 2px;
 }
 
+/* ── Tela de boas-vindas (substitui o grid de cards) ── */
+.home-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 180px);
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+}
+.home-welcome-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 28px;
+  background: var(--logo) center/cover no-repeat, var(--navy-4);
+  border: 2px solid var(--border);
+  box-shadow: 0 8px 32px rgba(30,54,148,.13);
+  margin-bottom: 28px;
+  opacity: 0.92;
+}
+.home-welcome-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.04em;
+  margin-bottom: 6px;
+}
+.home-welcome-sub {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+.home-welcome-hint {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.home-welcome-role {
+  font-size: 13px;
+  color: var(--muted);
+}
+
 /* ═══════════════════════════════════════════════════════════
    CARDS
 ═══════════════════════════════════════════════════════════ */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  box-shadow: var(--shadow-sm);
-  padding: 22px;
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-xs);
 }
 .card + .card { margin-top: 16px; }
 .card-header {
@@ -520,46 +577,32 @@ label.field {
    BUTTONS
 ═══════════════════════════════════════════════════════════ */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: 11px 20px;
-  transition: all .15s;
-  text-decoration: none;
-  white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: inherit; font-size: 13.5px; font-weight: 600;
+  padding: 9px 20px; border-radius: var(--radius-sm);
+  border: none; cursor: pointer; transition: background .15s, box-shadow .15s, transform .1s;
+  text-decoration: none; white-space: nowrap; min-height: 40px;
 }
-.btn:active { transform: translateY(1px); }
-.btn-primary {
-  background: var(--navy);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(30,54,148,.25);
-}
-.btn-primary:hover { background: var(--navy-d); box-shadow: 0 6px 18px rgba(30,54,148,.3); }
+.btn:active { transform: scale(.98); }
+.btn-primary { background: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(27,58,140,.25); }
+.btn-primary:hover { background: var(--primary-m); box-shadow: 0 4px 14px rgba(27,58,140,.3); }
+.btn-accent  { background: var(--accent); color: #fff; box-shadow: 0 2px 8px rgba(232,101,10,.25); }
+.btn-accent:hover { background: var(--accent-d); }
 .btn-secondary {
   background: var(--surface);
-  color: var(--navy);
+  color: var(--primary);
   border: 1.5px solid var(--border-2);
 }
-.btn-secondary:hover { border-color: var(--navy-2); background: var(--navy-4); }
-.btn-ghost {
-  background: transparent;
-  color: var(--ink-2);
-  border: 1.5px solid var(--border);
-}
-.btn-ghost:hover { border-color: var(--border-2); background: var(--surface-2); }
+.btn-secondary:hover { border-color: var(--primary-m); background: var(--primary-xl); }
+.btn-ghost   { background: transparent; color: var(--ink-2); border: 1px solid var(--border-2); }
+.btn-ghost:hover { background: var(--surface-2); }
 .btn-danger {
   background: var(--red-bg);
   color: var(--red);
   border: 1.5px solid #FECACA;
 }
 .btn-danger:hover { background: #FEE2E2; }
-.btn-sm { padding: 7px 14px; font-size: 13px; }
+.btn-sm { padding: 7px 14px; font-size: 13px; min-height: 34px; }
 .btn-lg { padding: 14px 28px; font-size: 15px; }
 .btn-full { width: 100%; }
 .btn-row {
@@ -568,6 +611,67 @@ label.field {
   flex-wrap: wrap;
   margin-top: 20px;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   ACESSIBILIDADE
+═══════════════════════════════════════════════════════════ */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+body { font-size: 14px; line-height: 1.6; }
+input, select, textarea { border: 1.5px solid var(--border-2); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 14px; }
+input:focus, select:focus, textarea:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(27,58,140,.12); }
+
+/* ═══════════════════════════════════════════════════════════
+   DASHBOARD HOME
+═══════════════════════════════════════════════════════════ */
+.dash-hero {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 28px; flex-wrap: wrap; gap: 12px;
+}
+.dash-kicker { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+.dash-title { font-size: 24px; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; margin-bottom: 4px; }
+.dash-sub { font-size: 13px; color: var(--muted); }
+.dash-date { font-size: 12px; color: var(--muted); text-align: right; padding-top: 6px; }
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .15s, border-color .2s;
+  box-shadow: var(--shadow-xs);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.dash-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); border-color: var(--primary-l); }
+.dash-card-icon-row { display: flex; align-items: center; justify-content: space-between; }
+.dash-card-icon {
+  width: 46px; height: 46px; border-radius: 12px;
+  display: grid; place-items: center; font-size: 22px;
+  flex-shrink: 0;
+}
+.dash-card-icon.blue  { background: var(--primary-xl); }
+.dash-card-icon.orange{ background: var(--accent-l); }
+.dash-card-icon.green { background: var(--green-bg); }
+.dash-card-icon.amber { background: var(--amber-bg); }
+.dash-card-arrow { font-size: 18px; color: var(--muted-2); transition: color .15s; }
+.dash-card:hover .dash-card-arrow { color: var(--primary); }
+.dash-card-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
+.dash-card-title { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-top: 2px; }
+.dash-card-meta { font-size: 12.5px; color: var(--muted); }
+.dash-card-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600; padding: 3px 9px;
+  border-radius: 999px;
+}
+.dash-card-badge.warn { background: var(--orange-bg); color: var(--accent-d); }
+.dash-card-badge.ok   { background: var(--green-bg);  color: var(--green); }
+.dash-card-badge.info { background: var(--primary-xl); color: var(--primary); }
+.dash-card.wide { grid-column: span 2; }
+@media (max-width: 700px) { .dash-card.wide { grid-column: span 1; } }
 
 /* ═══════════════════════════════════════════════════════════
    ALERTS / NOTES
@@ -1336,9 +1440,120 @@ table.tb td.num { text-align: center; font-variant-numeric: tabular-nums; font-w
   header.app, .btn-row, #consControls, .pickfilters { display: none !important; }
   .card { box-shadow: none; border: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════════════ */
+.app-layout { display: flex; min-height: 100vh; }
+/* ═══════════════════════════════════════════════════════════
+   SIDEBAR — novo design premium
+═══════════════════════════════════════════════════════════ */
+#appSidebar {
+  position: fixed; top: 0; left: 0; width: var(--sb-width);
+  height: 100vh; background: var(--sb-bg);
+  display: flex; flex-direction: column;
+  overflow-y: auto; overflow-x: hidden;
+  z-index: 300; transition: transform .25s;
+}
+#appSidebar.sb-hidden { transform: translateX(-100%); }
+.sidebar { width: var(--sb-width); background: var(--sb-bg); color: white; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 300; flex-shrink: 0; transition: transform 0.25s; display:flex; flex-direction:column; }
+.sidebar.sb-hidden { transform: translateX(-100%); }
+.sidebar-content { padding: 0 0 80px; flex:1; }
+.sidebar-logo { padding: 20px 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.sidebar-logo-img { width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.15); display:grid; place-items:center; overflow:hidden; flex-shrink:0; }
+.sidebar-logo-img img { width:80%; height:80%; object-fit:contain; }
+.sidebar-logo-text { font-size: 13px; font-weight: 700; color: #fff; line-height:1.2; }
+.sidebar-logo-sub { font-size: 9.5px; color: rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.08em; }
+.sidebar-group-title { font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sb-group); padding: 16px 20px 5px; }
+.sidebar-item { display: flex; align-items: center; gap: 11px; padding: 9px 20px; margin: 1px 8px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--sb-text); cursor: pointer; transition: background 0.15s, color 0.15s; position:relative; }
+.sidebar-item:hover { background: var(--sb-hover-bg); color: #fff; }
+.sidebar-item.active { background: var(--accent); color: #fff; font-weight: 600; }
+.sidebar-item .si-icon { font-size: 16px; width: 22px; flex-shrink: 0; text-align:center; }
+.sidebar-badge { background: var(--accent); color:#fff; font-size:10px; font-weight:700; padding:2px 6px; border-radius:999px; min-width:18px; text-align:center; margin-left:auto; }
+.sidebar-item.active .sidebar-badge { background: rgba(255,255,255,0.25); }
+.sidebar-user { position: fixed; bottom: 0; left: 0; width: var(--sb-width); padding: 14px 16px; background: var(--sb-bg); border-top: 1px solid rgba(255,255,255,0.08); font-size: 11px; color: rgba(255,255,255,0.7); z-index:301; transition: transform 0.25s; }
+.sidebar-user.sb-hidden { transform: translateX(-100%); }
+.sidebar-user-inner { display:flex; align-items:center; gap:10px; padding:8px; border-radius:10px; cursor:pointer; transition:background .15s; }
+.sidebar-user-inner:hover { background: rgba(255,255,255,0.07); }
+.sidebar-avatar { width:34px; height:34px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:700; display:grid; place-items:center; flex-shrink:0; }
+.sidebar-user-name { font-weight: 700; color: #fff; font-size: 12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sidebar-user-role { font-size: 10.5px; color: rgba(255,255,255,0.45); }
+
+/* ═══════════════════════════════════════════════════════════
+   APP SHELL — layout principal
+═══════════════════════════════════════════════════════════ */
+body { background: var(--bg); font-family: 'Inter', system-ui, sans-serif; }
+#mainContent {
+  margin-left: var(--sb-width);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#mainContent.no-sidebar { margin-left: 0; }
+
+/* Topbar */
+.topbar {
+  height: 52px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 28px; gap: 14px;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-title { font-size: 14px; font-weight: 600; color: var(--ink); flex: 1; }
+.topbar-user { display: flex; align-items: center; gap: 8px; }
+.topbar-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--primary-xl); color: var(--primary);
+  font-size: 11px; font-weight: 700;
+  display: grid; place-items: center;
+}
+
+/* Conteúdo scrollável */
+.page-scroll { flex: 1; padding: 28px 32px 72px; max-width: 1200px; }
+
+@media (max-width: 900px) {
+  #appSidebar { transform: translateX(-100%); }
+  #appSidebar.mobile-open { transform: translateX(0); }
+  #mainContent { margin-left: 0 !important; }
+  .page-scroll { padding: 20px 16px 60px; }
+  .sidebar-user { transform: translateX(-100%); }
+  .sidebar-user.mobile-open { transform: translateX(0); }
+}
+.main-with-sidebar { margin-left: 240px; flex: 1; min-height: 100vh; transition: margin-left 0.25s; }
+.pending-banner { background: var(--amber-bg, #fffbeb); border: 1px solid var(--amber, #f59e0b); border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 14px; font-size: 13px; display: flex; align-items: center; gap: 10px; }
+.pending-banner a { color: var(--amber, #f59e0b); font-weight: 700; cursor: pointer; text-decoration: underline; }
+@media (max-width: 768px) { .sidebar { transform: translateX(-100%); } .sidebar.mob-open { transform: translateX(0); } #mainContent { margin-left: 0 !important; } .sidebar-user { left: -240px; } .sidebar.mob-open ~ .sidebar-user, .mob-open + .sidebar-user { left: 0; } }
 </style>
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SIDEBAR                                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="appSidebar" class="sidebar sb-hidden">
+  <div class="sidebar-logo">
+    <div class="sidebar-logo-img">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%231B3A8C'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-family='Inter,sans-serif' font-weight='800' font-size='16' fill='white'%3EA%3C/text%3E%3C/svg%3E" alt="APABB">
+    </div>
+    <div>
+      <div class="sidebar-logo-text">APABB</div>
+      <div class="sidebar-logo-sub">Avaliação 360°</div>
+    </div>
+  </div>
+  <div class="sidebar-content">
+    <div id="sidebarItems"></div>
+  </div>
+  <div class="sidebar-user sb-hidden" id="sidebarUser">
+    <div class="sidebar-user-inner">
+      <div class="sidebar-avatar" id="sbAvatar">?</div>
+      <div>
+        <div class="sidebar-user-name" id="sbUserName"></div>
+        <div class="sidebar-user-role" id="sbUserRole"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- HEADER                                                      -->
@@ -1364,7 +1579,14 @@ table.tb td.num { text-align: center; font-variant-numeric: tabular-nums; font-w
   </div>
 </header>
 
-<main>
+<div id="mainWrapper" style="display:flex; flex-direction:column; min-height:100vh; transition:margin-left .25s; margin-left:0;">
+<div id="topbar" class="topbar" style="display:none">
+  <div class="topbar-title" id="topbarTitle">Dashboard</div>
+  <div class="topbar-user">
+    <div class="topbar-avatar" id="topbarAvatar">?</div>
+  </div>
+</div>
+<main id="mainContent">
 
 <!-- ═══════════════════════════ LOGIN ═══════════════════════════ -->
 <div id="loginScreen" class="login-split">
@@ -1414,14 +1636,24 @@ table.tb td.num { text-align: center; font-variant-numeric: tabular-nums; font-w
 
 <!-- ═══════════════════════════ HOME ═══════════════════════════ -->
 <div id="homeScreen" class="hide">
-  <div class="home-head">
+  <div id="pendBanner" style="display:none"></div>
+  <div id="storeWarn" style="display:none; margin-bottom:16px"></div>
+
+  <!-- Saudação -->
+  <div class="dash-hero">
     <div>
-      <h2 class="home-greeting" id="homeHi">Olá</h2>
-      <p class="home-sub" id="homeSub"></p>
+      <p class="dash-kicker">Bem-vindo(a) de volta</p>
+      <h2 class="dash-title" id="homeHi">Olá</h2>
+      <p class="dash-sub" id="homeSub"></p>
     </div>
+    <div class="dash-date" id="dashDate"></div>
   </div>
-  <div class="actions" id="actionGrid"></div>
-  <div id="storeWarn" style="display:none; margin-top:16px"></div>
+
+  <!-- Cards principais (novo dashboard) -->
+  <div class="dash-grid" id="dashGrid"></div>
+
+  <!-- Grid legado mantido para compatibilidade JS -->
+  <div class="actions" id="actionGrid" style="display:none"></div>
 </div>
 
 <!-- ═══════════════════════════ PICK ═══════════════════════════ -->
@@ -1491,11 +1723,18 @@ table.tb td.num { text-align: center; font-variant-numeric: tabular-nums; font-w
     <div class="blocktitle">Plano de Desenvolvimento Individual (PDI)</div>
     <p style="font-size:13px;color:var(--muted);margin-bottom:10px">As competências de menor nota, com sugestão de ação no modelo 70-20-10 (prática · apoio · formação).</p>
     <ul class="tag-list" id="rPDI"></ul>
+    <div id="pdiTrilhas"></div>
 
     <!-- Eligibility Panel -->
     <div id="eligPanel" class="hide">
       <div class="blocktitle">Análise de Elegibilidade para Desenvolvimento e Progressão</div>
       <div id="eligContent"></div>
+    </div>
+
+    <!-- AI Summary Block -->
+    <div id="aiResumoBlock" style="display:none;margin-top:18px">
+      <div class="blocktitle">Análise Inteligente — Resumo Automático</div>
+      <div class="orient" id="aiResumoContent"></div>
     </div>
 
     <div class="blocktitle" id="rNineTitle">Matriz Nine Box</div>
@@ -1578,10 +1817,11 @@ table.tb td.num { text-align: center; font-variant-numeric: tabular-nums; font-w
     <p class="page-lead" id="consSub" style="margin-bottom:16px"></p>
     <div id="consControls">
       <label class="field" style="margin:0">Período<select id="consPeriodo"></select></label>
-      <label class="field" style="margin:0">Peso Gestor (%)<input id="wGestor" type="number" min="0" max="100" value="50"></label>
+      <label class="field" style="margin:0">Peso Gestor (%)<input id="wGestor" type="number" min="0" max="100" value="45"></label>
       <label class="field" style="margin:0">Peso RH (%)<input id="wRh" type="number" min="0" max="100" value="20"></label>
       <label class="field" style="margin:0">Peso Autoaval. (%)<input id="wAuto" type="number" min="0" max="100" value="15"></label>
-      <label class="field" style="margin:0">Peso Equipe (%)<input id="wAscend" type="number" min="0" max="100" value="15"></label>
+      <label class="field" style="margin:0">Peso Equipe (%)<input id="wAscend" type="number" min="0" max="100" value="10"></label>
+      <label class="field" style="margin:0">Peso Deleg. NR (%)<input id="wDelegado" type="number" min="0" max="100" value="10"></label>
       <button class="btn btn-ghost btn-sm" id="wReset" style="align-self:flex-end">Padrão</button>
     </div>
     <div id="consResults"></div>
@@ -1619,7 +1859,48 @@ table.tb td.num { text-align: center; font-variant-numeric: tabular-nums; font-w
   </div>
 </div>
 
+<!-- ═══════════════════════════ ELEGIBILIDADE ═══════════════════════════ -->
+<div id="eligScreen" class="hide">
+  <div class="card anim-in">
+    <div class="page-kicker">RH · Administrativo Executivo</div>
+    <h2 class="page-title">Elegibilidade — Promoção e Progressão Salarial</h2>
+    <p class="page-lead" style="margin-bottom:20px">Critérios automáticos calculados a partir das avaliações registradas no histórico.</p>
+    <div id="eligTableContent"></div>
+    <div class="btn-row"><button class="btn btn-ghost" id="eligBack">← Voltar</button></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ UNIVERSIDADE APABB ═══════════════════════════ -->
+<div id="univScreen" class="hide">
+  <div class="card anim-in">
+    <div class="page-kicker">Desenvolvimento</div>
+    <h2 class="page-title">Universidade APABB — Trilhas de Aprendizagem</h2>
+    <p class="page-lead" style="margin-bottom:20px">Trilhas de desenvolvimento organizadas por categoria. Recomendações automáticas baseadas nas avaliações.</p>
+    <div id="univContent"></div>
+    <div class="btn-row"><button class="btn btn-ghost" id="univBack">← Voltar</button></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ MATRIZ 9-BOX GLOBAL ═══════════════════════════ -->
+<div id="nineBoxScreen" class="hide">
+  <div class="card anim-in">
+    <div class="page-kicker">RH · Administrativo Executivo</div>
+    <h2 class="page-title">Matriz 9-Box — Potencial × Desempenho</h2>
+    <p class="page-lead" style="margin-bottom:20px">Posicionamento automático dos colaboradores baseado na última avaliação (desempenho) e na evolução entre ciclos (potencial).</p>
+    <div id="nineBoxContent"></div>
+    <div class="btn-row"><button class="btn btn-ghost" id="nineBoxBack">← Voltar</button></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ PENDÊNCIAS ═══════════════════════════ -->
+<div id="pendScreen" class="hide">
+  <div class="card anim-in">
+    <div id="pendContent"></div>
+  </div>
+</div>
+
 </main>
+</div><!-- /#mainWrapper -->
 
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- JAVASCRIPT — Full logic preserved from v1 + new features        -->
@@ -1876,6 +2157,7 @@ const TIPOS={
   gestor:{label:"Avaliação do gestor",kicker:"Avaliação do gestor"},
   rh:{label:"Avaliação do RH",kicker:"Avaliação do RH"},
   ascend:{label:"Avaliação do gestor pela equipe",kicker:"Avaliar meu gestor"},
+  delegado:{label:"Avaliação do Delegado NR",kicker:"Delegado NR"},
 };
 
 /* ===== state & DB ===== */
@@ -1917,7 +2199,7 @@ function doLogin(){
   if(u.mustReset && !PW[u.login]){ openPwChange(true); return; } // troca obrigatória no 1º acesso
   openHome();
 }
-$("#logoutBtn").addEventListener("click",()=>{USER=null;$("#inLogin").value="";$("#inSenha").value="";$("#userbar").classList.add("hide");show("loginScreen");});
+$("#logoutBtn").addEventListener("click",()=>{USER=null;$("#inLogin").value="";$("#inSenha").value="";$("#userbar").classList.add("hide");hideSidebar();show("loginScreen");});
 
 /* ===== troca de senha ===== */
 function openPwChange(forced){
@@ -1935,10 +2217,12 @@ function doPwChange(){
 }
 
 function shortName(nome){if(!nome)return"";const t=nome.trim().split(/\s+/);return t.length<2?t[0]:t[0]+" "+t[t.length-1];}
-function roleLabel(r){return r==="rh"?"RH (acesso total)":r==="diretor"?"Diretoria":r==="presidente"?"Presidente (Somente Leitura)":r==="gestor"?"Gestor / Coordenação":"Colaborador";}
+function roleLabel(r){return r==="rh"?"RH (acesso total)":r==="diretor"?"Diretoria":r==="presidente"?"Administrativo Executivo":r==="gestor"?"Gestor / Coordenação":"Colaborador";}
+/* helper: FRANCISCODJALMA has full read+write admin access */
+function isPresidenteAdmin(){return USER&&USER.role==="presidente";}
 function scopeRoster(){
-  /* Presidente: vê todos, mas não avalia ninguém */
-  if(USER.role==="presidente") return [];
+  /* Presidente (FRANCISCODJALMA): acesso total — vê e avalia todos */
+  if(USER.role==="presidente") return ROSTER.filter(p=>p.login!=="DIRETORIA"&&p.login!=="FRANCISCODJALMA");
   const ov=SCOPES[USER.login];
   if(ov){return ROSTER.filter(p=>p.login!=="DIRETORIA"&&p.login!=="FRANCISCODJALMA"&&p.login!==USER.login&&((ov.cargoKeys&&ov.cargoKeys.includes(p.cargoKey))||(ov.extra&&ov.extra.includes(p.login))));}
   if(USER.role==="rh") return ROSTER.filter(p=>p.login!=="DIRETORIA"&&p.login!=="FRANCISCODJALMA"&&p.login!==USER.login);
@@ -1957,6 +2241,72 @@ function findGestor(){
 function canSeeOthers(){return scopeRoster().length>0;}
 
 /* ===== home ===== */
+function renderDashboard() {
+  const g = document.getElementById("dashGrid");
+  if (!g) return;
+  g.innerHTML = "";
+
+  const now = new Date();
+  const dd = document.getElementById("dashDate");
+  if (dd) dd.textContent = now.toLocaleDateString("pt-BR", {weekday:"long", day:"2-digit", month:"long", year:"numeric"});
+
+  const card = (icon, iconClass, label, title, meta, badge, badgeClass, fn) => {
+    const d = document.createElement("div");
+    d.className = "dash-card";
+    d.innerHTML = `
+      <div class="dash-card-icon-row">
+        <div class="dash-card-icon ${iconClass}">${icon}</div>
+        <span class="dash-card-arrow">→</span>
+      </div>
+      <div>
+        <div class="dash-card-label">${label}</div>
+        <div class="dash-card-title">${title}</div>
+        ${meta ? `<div class="dash-card-meta">${meta}</div>` : ""}
+      </div>
+      ${badge ? `<div><span class="dash-card-badge ${badgeClass}">${badge}</span></div>` : ""}
+    `;
+    if (fn) d.addEventListener("click", fn);
+    g.appendChild(d);
+  };
+
+  const pends = typeof getPendencias === "function" ? getPendencias() : [];
+  const pendCount = pends.length;
+
+  // Cards universais
+  card("📝","blue","Avaliação","Autoavaliação","Registre sua autoavaliação do ciclo atual",
+       null,"", () => { if(typeof startEval === "function") startEval("auto", USER); });
+
+  if (typeof openHistory === "function")
+    card("📈","orange","Histórico","Meu Histórico","Acompanhe sua evolução por ciclo",
+         null,"", openHistory);
+
+  if (pendCount > 0)
+    card("⏰","amber","Pendências",`${pendCount} avaliação(ões) pendente(s)`,"Clique para ver e iniciar",
+         `${pendCount} pendente${pendCount>1?"s":""}`, "warn",
+         typeof openPendencias === "function" ? openPendencias : null);
+
+  // Cards por perfil
+  if (USER && (USER.role === "gestor" || USER.role === "rh" || USER.role === "diretor" || USER.role === "presidente")) {
+    if (typeof openPick === "function")
+      card("👥","blue","Equipe","Avaliar Colaborador","Registre avaliações da sua equipe",
+           null,"", () => openPick("gestor"));
+    if (typeof openAnalytics === "function")
+      card("📊","orange","Analytics","People Analytics","Dashboard estratégico de talentos",
+           null,"", openAnalytics);
+  }
+  if (USER && (USER.role === "rh" || USER.role === "presidente")) {
+    if (typeof openEligibilidade === "function")
+      card("🏅","green","RH","Elegibilidade","Promoção e progressão salarial por critérios",
+           null,"", openEligibilidade);
+    if (typeof openNineBox === "function")
+      card("⬛","amber","Sucessão","Matriz 9-Box","Potencial × Desempenho",
+           null,"", openNineBox);
+  }
+  if (typeof openUniversidade === "function")
+    card("🎓","blue","Aprendizagem","Universidade APABB","Trilhas e cursos disponíveis",
+         null,"", openUniversidade);
+}
+
 function openHome(){
   $("#userbar").classList.remove("hide");
   $("#ubName").textContent=shortName(USER.nome);
@@ -1964,16 +2314,26 @@ function openHome(){
   $("#ubRole").textContent=roleLabel(USER.role);
   $("#homeHi").textContent="Olá, "+USER.nome.trim().split(/\s+/)[0];
   $("#homeSub").textContent=USER.funcao+" · "+USER.filial;
+  renderDashboard();
   const grid=$("#actionGrid");grid.innerHTML="";
   const add=(icon,title,desc,fn,lock)=>{const d=document.createElement("div");d.className="action"+(lock?" lock":"");
     d.innerHTML=`<div class="ai">${icon}</div><h3>${title}</h3><p>${desc}</p>`;if(!lock)d.addEventListener("click",fn);grid.appendChild(d);};
-  /* Presidente: somente leitura institucional — sem ações de avaliação */
+  /* Presidente (FRANCISCODJALMA): Administrativo Executivo — acesso total de RH+Diretor */
   if(USER.role==="presidente"){
+    add("👥","Avaliar colaborador","Avalie qualquer colaborador de todas as filiais.",()=>openPick("gestor"));
+    add("🏛️","Avaliação Executiva","Avaliação institucional de qualquer colaborador.",()=>openPick("rh"));
     add("📈","Histórico (todos)","Acompanhe a evolução de todos os colaboradores.",openHistory);
-    add("⚖️","Confrontar avaliações","Visão consolidada 360º de qualquer colaborador.",()=>openPickPresidente());
+    add("⚖️","Confrontar avaliações","Visão consolidada 360º de qualquer colaborador.",()=>openPick("auto","cons"));
+    add("📊","People Analytics","Dashboard executivo: rankings, heatmap, indicadores de risco e talentos.",openAnalytics);
+    add("📋","Elegibilidade","Promoção, aumento salarial e movimentação — critérios automáticos.",openEligibilidade);
+    add("🎓","Universidade APABB","Trilhas de aprendizagem por categoria e competência.",openUniversidade);
+    add("⬛","Matriz 9-Box","Posicionamento potencial × desempenho de todos os colaboradores.",openNineBox);
     add("📋","Critérios e formulário","Veja competências, pesos e regras (versão vigente).",openCriteria);
+    add("💾","Backup / consolidação","Exportar e importar o banco de avaliações.",openData);
     add("🔑","Trocar senha","Defina uma nova senha de acesso.",openPwChange);
     show("homeScreen");
+    renderSidebar(); setSidebarActive("Autoavaliação");
+    renderPendBanner();
     const sw=$("#storeWarn");
     if(!storageOK){sw.style.display="block";sw.className="card";sw.innerHTML='<div class="note warn"><b>Aviso:</b> este navegador bloqueou o armazenamento local. O histórico não será gravado automaticamente. Publique o arquivo em um endereço (http/https) ou use Exportar/Importar para guardar os dados.</div>';}
     else sw.style.display="none";
@@ -1994,13 +2354,20 @@ function openHome(){
   const evalDesc=USER.role==="diretor"?"Avaliação de Gerentes, Coordenadores e Beatriz Pereira (RH).":(SCOPES[USER.login]?"Avaliação dos colaboradores sob sua gestão.":"Avaliação do gestor da área (sua equipe / unidade).");
   if(canSeeOthers()) add("👥",evalLabel,evalDesc,()=>openPick("gestor"));
   if(USER.role==="rh") add("🏛️","Avaliação do RH","RH avalia qualquer colaborador da APABB.",()=>openPick("rh"));
+  if(USER.role==="rh") add("🤝","Avaliação Delegado NR","Registrar avaliação do Delegado do Núcleo Regional.",()=>openPick("delegado"));
   add("📈","Histórico","Veja a evolução das avaliações"+(canSeeOthers()?" (você e quem está sob sua gestão).":" (somente as suas)."),openHistory);
   add("⚖️","Confrontar avaliações","Consolidar RH, gestor, autoavaliação e equipe em uma nota final 360º, com conclusão.",()=>{canSeeOthers()?openPick("auto","cons"):openConsolidation(USER);});
   add("📘","Guia do gestor","Como agir em cada situação.",openOrient);
-  if(USER.role==="rh"||USER.role==="diretor") add("📋","Critérios e formulário","Veja competências, pesos e regras (versão vigente).",openCriteria);
+  if(USER.role==="rh"||USER.role==="diretor"||USER.role==="presidente") add("📋","Critérios e formulário","Veja competências, pesos e regras (versão vigente).",openCriteria);
+  if(USER.role==="rh"||USER.role==="diretor"||USER.role==="gestor") add("📊","People Analytics","Dashboard com rankings, heatmap, indicadores de risco e análise de talentos.",openAnalytics);
+  if(USER.role==="rh"||USER.role==="diretor") add("📋","Elegibilidade","Promoção, aumento salarial e movimentação — critérios automáticos.",openEligibilidade);
+  if(USER.role==="rh"||USER.role==="diretor") add("🎓","Universidade APABB","Trilhas de aprendizagem por categoria e competência.",openUniversidade);
+  if(USER.role==="rh"||USER.role==="diretor") add("⬛","Matriz 9-Box","Posicionamento potencial × desempenho de todos os colaboradores.",openNineBox);
   add("🔑","Trocar senha","Defina uma nova senha de acesso.",openPwChange);
   if(canSeeOthers()) add("💾","Backup / consolidação","Exportar e importar o banco de avaliações.",openData);
   show("homeScreen");
+  renderSidebar(); setSidebarActive("Autoavaliação");
+  renderPendBanner();
   const sw=$("#storeWarn");
   if(!storageOK){sw.style.display="block";sw.className="card";sw.innerHTML='<div class="note warn"><b>Aviso:</b> este navegador bloqueou o armazenamento local (comum ao abrir o arquivo direto do disco). O histórico não será gravado automaticamente. Publique o arquivo em um endereço (http/https) ou use Exportar/Importar para guardar os dados.</div>';}
   else sw.style.display="none";
@@ -2011,7 +2378,7 @@ function openPick(tipo,mode){
   ctx.tipo=tipo;ctx.pickMode=mode||"eval";const isCons=ctx.pickMode==="cons";
   $("#pickKicker").textContent=isCons?"Visão 360º":TIPOS[tipo].kicker;
   $("#pickTitle").textContent=isCons?"Confrontar avaliações de quem?":"Quem você vai avaliar";
-  $("#pickLead").textContent=isCons?"Selecione o colaborador para consolidar as avaliações do período.":(tipo==="rh"?"Selecione qualquer colaborador da APABB.":"Selecione um colaborador da sua unidade/equipe.");
+  $("#pickLead").textContent=isCons?"Selecione o colaborador para consolidar as avaliações do período.":(tipo==="rh"||tipo==="delegado"||USER.role==="presidente"?"Selecione qualquer colaborador da APABB.":"Selecione um colaborador da sua unidade/equipe.");
   const list=scopeRoster().filter(p=>p.login!==USER.login);
   const fil=$("#pickFilial");const filiais=[...new Set(list.map(p=>p.filial))].sort();
   fil.innerHTML='<option value="">Todas as unidades</option>'+filiais.map(f=>`<option>${f}</option>`).join("");
@@ -2253,27 +2620,51 @@ $("#resBack").addEventListener("click",openHome);
 $("#saveBtn").addEventListener("click",()=>{
   const R=ctx.result;
   const editing=!!ctx.editId;
+  const now=new Date();
+  const savedAt=now.toISOString().slice(0,16).replace("T"," ");
+  const periodo=$("#evSem").value+" "+$("#evAno").value;
   const rec={id:editing?ctx.editId:(Date.now()+"-"+Math.random().toString(36).slice(2,7)),
     targetLogin:ctx.target.login,targetNome:shortName(ctx.target.nome),targetFuncao:ctx.target.funcao,
     targetFilial:ctx.target.filial,categoria:ctx.target.categoria,
     tipo:ctx.tipo,tipoLabel:TIPOS[ctx.tipo].label,
     avaliadorLogin:USER.login,avaliadorNome:shortName(USER.nome),
-    periodo:$("#evSem").value+" "+$("#evAno").value,
+    periodo:periodo,
     score:ctx.scoreFinal,band:ctx.band,complete:R.complete,
     pilares:Object.fromEntries(ctx.blocks.map(b=>[b.name,R.per[b.key].avg])),
-    scores:ctx.scores,evid:ctx.evid,data:new Date().toISOString().slice(0,10),
+    scores:ctx.scores,evid:ctx.evid,
+    data:now.toISOString().slice(0,10),
+    savedAt:savedAt,
+    savedBy:USER.login,
+    savedByNome:shortName(USER.nome),
+    ciclo:periodo,
+    version:1,
+    changeLog:[{ts:savedAt,by:USER.login,byNome:shortName(USER.nome),action:"criação"}],
     formVersion:FORM_VERSION,
     formSnapshot:ctx.blocks.map(b=>({name:b.name,weight:b.weight,comps:b.comps.slice()}))};
   if(editing){
     const i=DB.evals.findIndex(e=>e.id===ctx.editId);
-    rec.editedBy=shortName(USER.nome);rec.editedAt=new Date().toISOString().slice(0,16).replace("T"," ");
-    rec.criadoData=(DB.evals[i]&&DB.evals[i].data)||rec.data;
+    const prev=DB.evals[i]||{};
+    rec.editedBy=shortName(USER.nome);
+    rec.editedAt=savedAt;
+    rec.criadoData=prev.data||rec.data;
+    rec.savedAt=prev.savedAt||savedAt; // preserve original save timestamp
+    rec.savedBy=prev.savedBy||USER.login;
+    rec.savedByNome=prev.savedByNome||shortName(USER.nome);
+    rec.version=(prev.version||1)+1;
+    rec.changeLog=[...(prev.changeLog||[{ts:prev.savedAt||prev.data,by:prev.savedBy||"?",byNome:prev.savedByNome||prev.avaliadorNome||"?",action:"criação"}]),{ts:savedAt,by:USER.login,byNome:shortName(USER.nome),action:"edição"}];
     if(i>=0) DB.evals[i]=rec; else DB.evals.push(rec);
   } else DB.evals.push(rec);
   saveDB(DB);
-  $("#saveHint").innerHTML='<span style="color:var(--b5);font-weight:700">✓ Avaliação '+(editing?'alterada':'salva')+' no histórico'+(storageOK?'.':' (apenas nesta sessão — armazenamento local indisponível; use Exportar para guardar).')+'</span>';
+  const action=editing?'alterada':'salva';
+  const storageMsg=storageOK?'':' <span style="color:var(--orange)">(armazenamento local indisponível — use Exportar para guardar)</span>';
+  $("#saveHint").innerHTML=`<span style="color:var(--green);font-weight:700">✓ Avaliação ${action} com sucesso</span>
+    <span style="display:block;font-size:12px;color:var(--muted);margin-top:4px">
+      Registrado em: ${savedAt} · Ciclo: ${periodo} · Formulário v${FORM_VERSION}${storageMsg}
+    </span>`;
   $("#saveBtn").textContent="Salvo ✓";$("#saveBtn").disabled=true;$("#saveBtn").style.opacity=".6";
   ctx.editId=null;
+  // Refresh sidebar badge (pendências count may have changed)
+  if(typeof renderSidebar==="function") renderSidebar();
 });
 
 /* ===== history ===== */
@@ -2332,7 +2723,7 @@ function openHistory(){
     $("#histSel").onchange=()=>renderHist($("#histSel").value);
     renderHist(USER.login);
   } else {pick.innerHTML="";renderHist(USER.login);}
-  show("histScreen");
+  show("histScreen");setSidebarActive("Histórico");
 }
 function renderHist(login){
   const c=$("#histContent");
@@ -2352,14 +2743,14 @@ function renderHist(login){
     return `<div class="bar"><span class="bv">${r.score}</span><div class="bk" style="height:${h}px;background:${col}"></div><span class="bl">${r.periodo.replace('Semestre','sem')}<br>${r.tipoLabel.split(' ')[0]}</span></div>`;}).join("");
   let html=`<h3 style="font-size:16px;color:var(--navy);margin:6px 0">${person?shortName(person.nome):login} <span style="font-weight:500;color:var(--muted);font-size:13px">· ${person?person.funcao:''}</span></h3>`;
   html+=`<div class="evo">${bars}</div>`;
-  const isRH=USER.role==="rh";
+  const isRH=USER.role==="rh"||USER.role==="presidente";
   html+=`<table class="tb"><tr><th>Data</th><th>Período</th><th>Tipo</th><th>Avaliador</th><th>Nota</th><th>Classificação</th><th></th></tr>`;
   recs.slice().reverse().forEach(r=>{const col=r.score>=80?'var(--b4)':r.score>=70?'var(--b3)':r.score>=60?'var(--b2)':'var(--b1)';
     const edited=r.editedBy?` <span title="Alterada por ${r.editedBy} em ${r.editedAt}" style="color:var(--gold-d);font-size:11px">✎</span>`:"";
     const acts=`<button class="btn btn-ghost btn-sm" data-det="${r.id}">Detalhes</button>`+(isRH?` <button class="btn btn-ghost btn-sm" data-edit="${r.id}">Editar</button> <button class="btn btn-ghost btn-sm" data-del="${r.id}" style="color:var(--b1)">Excluir</button>`:"");
     html+=`<tr><td>${r.data}${edited}</td><td>${r.periodo}</td><td>${r.tipoLabel}</td><td>${(r.avaliadorNome||'').split(' ')[0]}</td><td class="num" style="color:${col}">${r.score}</td><td>${r.band}</td><td class="num" style="white-space:nowrap">${acts}</td></tr>`;});
   html+=`</table><div id="histDetail"></div>`;
-  if(isRH) html+=`<div class="note">Como RH, você pode <b>editar</b> ou <b>excluir</b> qualquer avaliação. Edições ficam marcadas (✎) com autoria e data; exclusões são definitivas — recomenda-se exportar um backup antes (Backup / consolidação).</div>`;
+  if(isRH) html+=`<div class="note">Como ${USER.role==="presidente"?"Administrativo Executivo":"RH"}, você pode <b>editar</b> ou <b>excluir</b> qualquer avaliação. Edições ficam marcadas (✎) com autoria e data; exclusões são definitivas — recomenda-se exportar um backup antes (Backup / consolidação).</div>`;
   // comparativo entre ciclos (oficiais)
   if(off.length>1){const f=off[0],l=off[off.length-1];const d=l.score-f.score;
     html+=`<div class="note ${d>=0?'ok':'warn'}">Comparativo entre ciclos: de <b>${f.score}</b> (${f.periodo}) para <b>${l.score}</b> (${l.periodo}) — variação de <b>${d>=0?'+':''}${d}</b> pontos.</div>`;}
@@ -2372,7 +2763,28 @@ function renderHist(login){
   $$("#histContent [data-det]").forEach(b=>b.addEventListener("click",()=>{
     const r=recs.find(x=>x.id===b.dataset.det);const det=$("#histDetail");
     let dh=`<div class="block"><div class="bhead"><span class="btitle">${r.tipoLabel} · ${r.periodo}</span><span class="bavg">${r.score}</span></div><div class="bbody">`;
-    dh+=`<p style="font-size:12.5px;color:var(--muted);margin:6px 0">Avaliador: ${r.avaliadorNome} · Data: ${r.data} · Formulário v${r.formVersion||'—'}</p>`;
+    // Traceability block
+    if(r.savedAt||r.savedByNome){
+      const preenchidoEm=r.savedAt||r.data||'—';
+      const preenchidoPor=r.savedByNome||r.avaliadorNome||'—';
+      const versao=r.version||1;
+      const editCount=versao-1;
+      dh+=`<div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin:8px 0;font-size:12px">`;
+      dh+=`<div style="font-weight:700;color:var(--navy);margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:.07em">Rastreabilidade</div>`;
+      dh+=`<div style="display:flex;flex-wrap:wrap;gap:12px">`;
+      dh+=`<span><b>Preenchido em:</b> ${preenchidoEm.replace('T',' ')}</span>`;
+      dh+=`<span><b>Por:</b> ${preenchidoPor}</span>`;
+      dh+=`<span><b>Versão:</b> ${versao}${editCount>0?' (editada '+editCount+' vez'+(editCount>1?'es':'')+')'  :''}</span>`;
+      dh+=`<span><b>Formulário:</b> v${r.formVersion||'—'}</span>`;
+      dh+=`</div>`;
+      if(r.changeLog&&r.changeLog.length>1){
+        dh+=`<div style="margin-top:8px;font-size:11.5px;color:var(--muted)">${r.changeLog.map(c=>`${c.ts} — ${c.action} por ${c.byNome}`).join(' → ')}</div>`;
+      }
+      dh+=`</div>`;
+    } else {
+      dh+=`<p style="font-size:12px;color:var(--muted-2);margin:6px 0;font-style:italic">Dados de rastreabilidade não disponíveis (avaliação registrada antes desta versão).</p>`;
+    }
+    dh+=`<p style="font-size:12.5px;color:var(--muted);margin:4px 0">Avaliador: ${r.avaliadorNome} · Data: ${r.data} · Formulário v${r.formVersion||'—'}</p>`;
     (r.formSnapshot||[]).forEach(bl=>{dh+=`<div style="font-weight:700;color:var(--navy);margin:8px 0 4px;font-size:13.5px">${bl.name}</div><ul class="tag-list">`;
       bl.comps.forEach((c2,ci)=>{const key=({"Resultados e Entregas":"p1","Competências Comportamentais":"p3","Aderência aos Valores da APABB":"p4","Desenvolvimento e Inovação":"p5","Liderança percebida pela equipe":"lid"})[bl.name]||(bl.name.indexOf("Competências Técnicas")===0?"p2":"p1");
         const id=key+"_"+ci;const v=r.scores?r.scores[id]:null;const ev=r.evid?r.evid[id]:"";
@@ -2386,7 +2798,7 @@ function renderHist(login){
     const blob=new Blob(["\ufeff"+lines.join("\n")],{type:"text/csv;charset=utf-8"});
     const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="historico_"+login+".csv";a.click();URL.revokeObjectURL(a.href);
   });
-  if(USER.role==="rh"){
+  if(USER.role==="rh"||USER.role==="presidente"){
     $$("#histContent [data-edit]").forEach(b=>b.addEventListener("click",()=>{const r=DB.evals.find(x=>x.id===b.dataset.edit);if(r)editEval(r);}));
     $$("#histContent [data-del]").forEach(b=>b.addEventListener("click",()=>{
       const r=DB.evals.find(x=>x.id===b.dataset.del);if(!r)return;
@@ -2411,14 +2823,38 @@ const SIT=[
   ["Feedback difícil","Prepare-se com fatos; fale em local reservado; descreva situação–comportamento–impacto; ouça; combine próximos passos; registre no PDI."],
   ["Reconhecer sem orçamento","Use reconhecimento não financeiro: feedback positivo, visibilidade, novas responsabilidades, desenvolvimento e participação em decisões — muito valorizados no terceiro setor."],
 ];
+
+// Tips specifically for colaboradores doing their self-evaluation
+const SIT_AUTO = [
+  ["O que é a autoavaliação?","A autoavaliação é sua oportunidade de refletir sobre seu próprio desempenho no ciclo. Ela não é punição nem prova — é um instrumento de diálogo e desenvolvimento. Avalie com honestidade e use fatos concretos."],
+  ["Como pontuar com precisão","Evite os extremos: dar sempre 5 ou sempre 1 distorce a análise e reduz o valor do seu feedback. Pense em situações reais: entregou o esperado? Superou? Ficou abaixo? Use isso como referência."],
+  ["Evidências e comentários","Nos campos de evidência, cite exemplos objetivos — projetos, situações, resultados. Um bom comentário transforma um número em uma narrativa de desenvolvimento e aumenta a credibilidade da sua avaliação."],
+  ["Autoavaliação × avaliação do gestor","É normal haver diferença entre as duas. O objetivo não é que coincidam, mas que gerem uma conversa produtiva. Se você se avaliou mais alto ou mais baixo, esteja preparado para explicar o porquê com exemplos."],
+  ["Fit cultural e valores (Pilar 4)","Este pilar avalia como você vive os valores da APABB — ética, inclusão, acolhimento, comprometimento. Reflita sobre comportamentos, não apenas resultados. Um colaborador de alto desempenho e baixo fit cultural traz riscos para o clima da equipe."],
+  ["Após enviar","Após salvar, sua avaliação fica registrada no histórico. O RH ou seu gestor pode visualizá-la para a devolutiva. Você poderá acompanhar sua evolução em 'Histórico' e comparar ciclos ao longo do tempo."],
+];
+
 function openOrient(){
-  $("#orientContent").innerHTML=SIT.map(s=>`<div class="block"><div class="bhead"><span class="btitle">${s[0]}</span></div><div class="bbody"><p style="font-size:14px;margin:8px 0">${s[1]}</p></div></div>`).join("");
+  const isColab = USER && USER.role === "colaborador";
+  let html = "";
+  if (isColab) {
+    html += `<div class="note ok" style="margin-bottom:16px;font-size:13.5px">
+      <b>📝 Dicas para a sua autoavaliação</b> — Antes de começar, leia as orientações abaixo.
+    </div>`;
+    html += SIT_AUTO.map(s=>`<div class="block"><div class="bhead"><span class="btitle">${s[0]}</span><span class="chev">▾</span></div><div class="bbody"><p style="font-size:14px;margin:8px 0">${s[1]}</p></div></div>`).join("");
+    html += `<div style="margin:20px 0 8px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Guia completo do gestor</div>`;
+  }
+  html += SIT.map(s=>`<div class="block"><div class="bhead"><span class="btitle">${s[0]}</span><span class="chev">▾</span></div><div class="bbody"><p style="font-size:14px;margin:8px 0">${s[1]}</p></div></div>`).join("");
+  $("#orientContent").innerHTML = html;
+  // Wire up collapse toggles
+  document.querySelectorAll("#orientContent .bhead").forEach(hd => hd.addEventListener("click", () => hd.closest(".block").classList.toggle("collapsed")));
   show("orientScreen");
+  setSidebarActive("Guia do gestor");
 }
 $("#orientBack").addEventListener("click",openHome);
 
 /* ===== data backup ===== */
-function openData(){$("#dbStat").textContent=`Banco atual: ${DB.evals.length} avaliação(ões) registrada(s) neste navegador.`;show("dataScreen");}
+function openData(){$("#dbStat").textContent=`Banco atual: ${DB.evals.length} avaliação(ões) registrada(s) neste navegador.`;show("dataScreen");setSidebarActive("Backup");}
 $("#dataBack").addEventListener("click",openHome);
 $("#expBtn").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(DB,null,2)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="apabb_avaliacoes_backup.json";a.click();URL.revokeObjectURL(a.href);});
@@ -2430,8 +2866,10 @@ $("#impFile").addEventListener("change",e=>{const f=e.target.files[0];if(!f)retu
     catch(err){alert("Arquivo inválido.");}finally{e.target.value="";}};r.readAsText(f);});
 
 /* ===== consolidação 360º ===== */
-const CONS_SRC=[["gestor","Gestor da área"],["rh","RH"],["auto","Autoavaliação"],["ascend","Equipe (ascendente)"]];
-function readW(){return {gestor:+($("#wGestor").value)||0,rh:+($("#wRh").value)||0,auto:+($("#wAuto").value)||0,ascend:+($("#wAscend").value)||0};}
+const CONS_SRC=[["gestor","Gestor da área"],["rh","RH"],["auto","Autoavaliação"],["ascend","Equipe (ascendente)"],["delegado","Delegado NR"]];
+function readW(){return {gestor:+($("#wGestor").value)||0,rh:+($("#wRh").value)||0,auto:+($("#wAuto").value)||0,ascend:+($("#wAscend").value)||0,delegado:+($("#wDelegado").value)||0};}
+/* Tipos de avaliação válidos para salvar como Delegado NR */
+/* Para registrar uma avaliação como delegado, o tipo deve ser "delegado" */
 function srcPillar(recs,matchFn){const v=[];recs.forEach(r=>Object.entries(r.pilares||{}).forEach(([k,val])=>{if(val!=null&&matchFn(k))v.push(val);}));return v.length?v.reduce((a,b)=>a+b,0)/v.length:null;}
 const PILS=[["Resultados e Entregas",k=>k==="Resultados e Entregas"],["Competências Técnicas",k=>k.indexOf("Competências Técnicas")===0],["Competências Comportamentais",k=>k==="Competências Comportamentais"],["Aderência aos Valores da APABB",k=>k==="Aderência aos Valores da APABB"],["Desenvolvimento e Inovação",k=>k==="Desenvolvimento e Inovação"]];
 
@@ -2445,7 +2883,7 @@ function openConsolidation(target){
   const sel=$("#consPeriodo");
   sel.innerHTML=periods.length?periods.map(p=>`<option>${p}</option>`).join(""):'<option value="">(sem avaliações)</option>';
   if(periods.length) sel.value=periods[periods.length-1];
-  renderCons();show("consScreen");
+  renderCons();show("consScreen");setSidebarActive("Confrontar avaliações");
 }
 function renderCons(){
   const t=ctx.consTarget, per=$("#consPeriodo").value, out=$("#consResults");
@@ -2540,9 +2978,9 @@ function consConclusion(t,present,finalR,shown,pdata,capped,p4cons,per){
   L.push(`<p><span class="k">Recomendação:</span> use esta consolidação na reunião de calibração; baseie a devolutiva em fatos e exemplos; transforme as divergências em diálogo; e direcione o PDI para o pilar mais frágil, com acompanhamento no próximo ciclo.</p>`);
   return L.join("");
 }
-["wGestor","wRh","wAuto","wAscend"].forEach(id=>$("#"+id).addEventListener("input",()=>{if(!$("#consScreen").classList.contains("hide"))renderCons();}));
+["wGestor","wRh","wAuto","wAscend","wDelegado"].forEach(id=>$("#"+id).addEventListener("input",()=>{if(!$("#consScreen").classList.contains("hide"))renderCons();}));
 $("#consPeriodo").addEventListener("change",renderCons);
-$("#wReset").addEventListener("click",()=>{$("#wGestor").value=50;$("#wRh").value=20;$("#wAuto").value=15;$("#wAscend").value=15;renderCons();});
+$("#wReset").addEventListener("click",()=>{$("#wGestor").value=45;$("#wRh").value=20;$("#wAuto").value=15;$("#wAscend").value=10;$("#wDelegado").value=10;renderCons();});
 $("#consPrint").addEventListener("click",()=>window.print());
 $("#consBack").addEventListener("click",openHome);
 
@@ -2566,7 +3004,7 @@ function openCriteria(){
   h+=`<div class="blocktitle">Liderança (gestão)</div><div class="note">Coordenação: ${LEAD.coordenacao.join("; ")}.<br>Gerência: ${LEAD.gerencia.join("; ")}.</div>`;
   $("#critContent").innerHTML=h;
   $$("#critContent .bhead").forEach(hd=>hd.addEventListener("click",()=>hd.closest(".block").classList.toggle("collapsed")));
-  show("critScreen");
+  show("critScreen");setSidebarActive("Critérios");
 }
 
 /* init */
@@ -2751,7 +3189,7 @@ window.showResult = function() {
 ═══════════════════════════════════════════════════════════════ */
 function openAnalytics() {
   renderAnalytics();
-  show("analyticsScreen");
+  show("analyticsScreen");setSidebarActive("People Analytics");
 }
 
 function renderAnalytics() {
@@ -2944,6 +3382,863 @@ window.show = function(id) {
 };
 
 /* Re-init */
+show("loginScreen");
+
+/* ═══════════════════════════════════════════════════════════════
+   EXTENDED SCREENS PATCH — include new screens
+═══════════════════════════════════════════════════════════════ */
+const _SCREENS_EXT2 = ["loginScreen","pwScreen","homeScreen","pickScreen","evalScreen","resultScreen","histScreen","consScreen","critScreen","orientScreen","dataScreen","analyticsScreen","eligScreen","univScreen","nineBoxScreen","pendScreen"];
+window.show = function(id) {
+  _SCREENS_EXT2.forEach(s => {
+    const el = document.getElementById(s);
+    if (el) el.classList.toggle("hide", s !== id);
+  });
+  // Show/hide sidebar based on screen
+  const noSidebarScreens = ["loginScreen","pwScreen"];
+  if (noSidebarScreens.includes(id)) {
+    hideSidebar();
+  } else if (USER) {
+    if (document.getElementById("appSidebar").classList.contains("sb-hidden")) {
+      showSidebar();
+    }
+  }
+  window.scrollTo({top:0, behavior:"smooth"});
+};
+document.getElementById("eligBack").addEventListener("click", openHome);
+document.getElementById("univBack").addEventListener("click", openHome);
+document.getElementById("nineBoxBack").addEventListener("click", openHome);
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURE 2 — ELEGIBILIDADE (Promoção / Progressão Salarial)
+═══════════════════════════════════════════════════════════════ */
+function openEligibilidade() {
+  renderEligibilidadeTable();
+  show("eligScreen");setSidebarActive("Elegibilidade");
+}
+
+function renderEligibilidadeTable() {
+  const allPeople = ROSTER.filter(p => p.login !== "DIRETORIA" && p.login !== "FRANCISCODJALMA" && p.login !== "RONALDORIPARI");
+  let html = `<style>
+    .elig-tbl { width:100%; border-collapse:collapse; font-size:13px; }
+    .elig-tbl th { background:var(--navy); color:#fff; padding:8px 10px; text-align:left; font-size:11.5px; font-weight:700; letter-spacing:.03em; }
+    .elig-tbl td { padding:8px 10px; border-bottom:1px solid var(--border); vertical-align:middle; }
+    .elig-tbl tr:hover td { background:var(--navy-4); }
+    .elig-badge { display:inline-block; padding:3px 9px; border-radius:99px; font-size:11px; font-weight:700; white-space:nowrap; }
+    .elig-promo   { background:#d1fae5; color:#065f46; }
+    .elig-aumento { background:#dbeafe; color:#1e40af; }
+    .elig-lateral { background:#fef9c3; color:#713f12; }
+    .elig-dev     { background:#ffedd5; color:#9a3412; }
+    .elig-critico { background:#fee2e2; color:#991b1b; }
+  </style>`;
+  html += `<div class="note" style="margin-bottom:12px">
+    <b>Critérios:</b>
+    <b style="color:var(--green)">Apto para Promoção</b> — mín. 3 aval. consecutivas &gt;80%, média comportamental ≥85%, fit cultural ≥85% |
+    <b style="color:var(--teal)">Apto para Aumento</b> — mín. 2 aval. consecutivas &gt;75% |
+    <b style="color:var(--amber)">Movimentação Lateral</b> — desempenho 70–80% por 2+ ciclos |
+    <b style="color:var(--orange)">Em Desenvolvimento</b> — abaixo dos critérios mas com evolução positiva |
+    <b style="color:var(--red)">Zona Crítica</b> — &lt;60% ou queda recorrente
+  </div>`;
+  html += `<table class="elig-tbl"><thead><tr>
+    <th>Colaborador</th><th>Função</th><th>Unidade</th>
+    <th>Últ. Nota</th><th>Ciclos</th><th>Tendência</th><th>Status</th>
+  </tr></thead><tbody>`;
+
+  allPeople.sort((a,b)=>a.nome.localeCompare(b.nome)).forEach(p => {
+    const recs = DB.evals.filter(e => e.targetLogin===p.login && (e.tipo==="gestor"||e.tipo==="rh")).sort((a,b)=>a.data.localeCompare(b.data));
+    if (!recs.length) {
+      html += `<tr><td>${shortName(p.nome)}</td><td>${p.funcao}</td><td>${p.filial.replace('APABB ','')}</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">0</td>
+        <td style="color:var(--muted)">—</td>
+        <td><span class="elig-badge" style="background:#f1f5f9;color:#64748b">Sem dados</span></td></tr>`;
+      return;
+    }
+    const lastScore = recs[recs.length-1].score;
+    const n = recs.length;
+    // Tendência
+    let trend = "→", trendColor = "var(--muted)";
+    if (n >= 2) {
+      const diff = recs[n-1].score - recs[n-2].score;
+      if (diff > 3) { trend = "↑ +" + diff; trendColor = "var(--green)"; }
+      else if (diff < -3) { trend = "↓ " + diff; trendColor = "var(--red)"; }
+      else { trend = "→ " + (diff >= 0 ? "+" : "") + diff; trendColor = "var(--amber)"; }
+    }
+    // Status logic
+    let status = "elig-dev", statusLabel = "Em Desenvolvimento";
+    const last3 = recs.slice(-3).map(r=>r.score);
+    const last2 = recs.slice(-2).map(r=>r.score);
+    const allLast3Above80 = last3.length >= 3 && last3.every(s=>s>80);
+    const allLast2Above75 = last2.length >= 2 && last2.every(s=>s>75);
+    const allLast2Btw70_80 = last2.length >= 2 && last2.every(s=>s>=70&&s<=80);
+    // get comportamental and cultural averages from last eval
+    let compAvg = null, cultAvg = null;
+    const lastRec = recs[recs.length-1];
+    if (lastRec.pilares) {
+      const compKey = Object.keys(lastRec.pilares).find(k=>k.indexOf("Comportamental")>=0);
+      const cultKey = Object.keys(lastRec.pilares).find(k=>k.indexOf("Valores")>=0);
+      if (compKey && lastRec.pilares[compKey]!=null) compAvg = lastRec.pilares[compKey]*20;
+      if (cultKey && lastRec.pilares[cultKey]!=null) cultAvg = lastRec.pilares[cultKey]*20;
+    }
+    const isRecorrente = n >= 3 && recs.slice(-3).every((r,i,a)=>i===0||r.score<a[i-1].score);
+    if (lastScore < 60 || isRecorrente) {
+      status = "elig-critico"; statusLabel = "🔴 Zona Crítica";
+    } else if (allLast3Above80 && (compAvg===null||compAvg>=85) && (cultAvg===null||cultAvg>=85)) {
+      status = "elig-promo"; statusLabel = "🚀 Apto para Promoção";
+    } else if (allLast2Above75) {
+      status = "elig-aumento"; statusLabel = "💰 Apto para Aumento";
+    } else if (allLast2Btw70_80) {
+      status = "elig-lateral"; statusLabel = "↔ Movimentação Lateral";
+    } else if (n >= 2 && recs[n-1].score > recs[n-2].score) {
+      status = "elig-dev"; statusLabel = "📈 Em Desenvolvimento";
+    } else {
+      status = "elig-dev"; statusLabel = "📋 Em Desenvolvimento";
+    }
+    html += `<tr>
+      <td><strong>${shortName(p.nome)}</strong></td>
+      <td style="font-size:12px">${p.funcao}</td>
+      <td style="font-size:12px">${p.filial.replace('APABB ','')}</td>
+      <td style="font-weight:700;color:${lastScore>=80?'var(--green)':lastScore>=70?'var(--amber)':'var(--red)'}">${lastScore}</td>
+      <td style="text-align:center">${n}</td>
+      <td style="color:${trendColor};font-weight:600">${trend}</td>
+      <td><span class="elig-badge ${status}">${statusLabel}</span></td>
+    </tr>`;
+  });
+  html += `</tbody></table>`;
+  document.getElementById("eligTableContent").innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURE 3 — UNIVERSIDADE APABB (Trilhas de Aprendizagem)
+═══════════════════════════════════════════════════════════════ */
+const TRILHAS = {
+  comportamental: [
+    { nome:"Comunicação Efetiva", desc:"Expressão clara, escuta ativa e feedback construtivo.", tag:"Comunicação" },
+    { nome:"Trabalho em Equipe e Colaboração", desc:"Construir relações de confiança e cooperação.", tag:"Equipe" },
+    { nome:"Inteligência Emocional", desc:"Autoconhecimento, autorregulação e empatia.", tag:"IE" },
+    { nome:"Gestão de Conflitos", desc:"Mediação, negociação e clima organizacional saudável.", tag:"Conflitos" },
+    { nome:"Proatividade e Protagonismo", desc:"Antecipação, iniciativa e senso de dono.", tag:"Proatividade" },
+    { nome:"Adaptabilidade e Resiliência", desc:"Lidar com mudanças e imprevistos com equilíbrio.", tag:"Adaptabilidade" },
+  ],
+  tecnico_financeiro: [
+    { nome:"Finanças para o Terceiro Setor", desc:"Gestão financeira, fluxo de caixa e conformidade.", tag:"Financeiro" },
+    { nome:"Prestação de Contas e Transparência", desc:"Relatórios, auditorias e LGPD.", tag:"Conformidade" },
+    { nome:"Orçamento e Planejamento Financeiro", desc:"Elaboração e controle orçamentário.", tag:"Orçamento" },
+  ],
+  tecnico_rh: [
+    { nome:"Gestão de Pessoas no Terceiro Setor", desc:"Recrutamento, desenvolvimento e retenção.", tag:"RH" },
+    { nome:"Avaliação de Desempenho 360º", desc:"Metodologias, feedback e PDI.", tag:"Avaliação" },
+    { nome:"CLT e Legislação Trabalhista", desc:"Rotinas trabalhistas e conformidade legal.", tag:"Legislação" },
+  ],
+  tecnico_projetos: [
+    { nome:"Gestão de Projetos Sociais", desc:"Planejamento, execução e monitoramento de projetos.", tag:"Projetos" },
+    { nome:"Captação de Recursos e Editais", desc:"Elaboração de projetos para leis de incentivo.", tag:"Captação" },
+    { nome:"Indicadores de Impacto Social", desc:"Mensuração e comunicação de resultados.", tag:"Impacto" },
+  ],
+  tecnico_esporte: [
+    { nome:"Esporte Adaptado — Fundamentos", desc:"Adaptações práticas para pessoas com deficiência.", tag:"Esporte" },
+    { nome:"Inclusão pelo Esporte", desc:"Metodologias inclusivas e desenvolvimento integral.", tag:"Inclusão" },
+    { nome:"Segurança nas Atividades Esportivas", desc:"Primeiros socorros e prevenção de acidentes.", tag:"Segurança" },
+  ],
+  fit_cultural: [
+    { nome:"Cultura e Valores APABB", desc:"Missão, visão, valores e identidade institucional.", tag:"Cultura" },
+    { nome:"Missão Social e Ética", desc:"Conduta ética, transparência e compromisso social.", tag:"Ética" },
+    { nome:"Inclusão e Diversidade", desc:"Fundamentos da inclusão de pessoas com deficiência.", tag:"Diversidade" },
+    { nome:"Postura Humanizada no Trabalho", desc:"Acolhimento, empatia e dignidade no atendimento.", tag:"Humanização" },
+  ],
+};
+
+const TRILHA_LABELS = {
+  comportamental:"Comportamental",
+  tecnico_financeiro:"Técnico — Financeiro",
+  tecnico_rh:"Técnico — RH",
+  tecnico_projetos:"Técnico — Projetos",
+  tecnico_esporte:"Técnico — Esporte",
+  fit_cultural:"Fit Cultural / Valores"
+};
+
+function openUniversidade() {
+  // For colaboradores: show ONLY recommended trilhas (not all)
+  if (USER && USER.role === "colaborador") {
+    const myEvals = DB.evals.filter(e => e.targetLogin === USER.login).sort((a,b) => b.data.localeCompare(a.data));
+    if (myEvals.length) {
+      const latest = myEvals[0];
+      // Reconstruct a result-like object for computeTrilhasRecomendadas
+      const fakeResult = { per: {}, complete: latest.complete };
+      if (latest.pilares) {
+        fakeResult.per.p1 = { avg: latest.pilares["Resultados e Entregas"] || 0, conv: (latest.pilares["Resultados e Entregas"] || 0) };
+        fakeResult.per.p2 = { avg: latest.pilares["Competências Técnicas"] || 0, conv: (latest.pilares["Competências Técnicas"] || 0) };
+        fakeResult.per.p3 = { avg: latest.pilares["Competências Comportamentais"] || 0, conv: (latest.pilares["Competências Comportamentais"] || 0) };
+        fakeResult.per.p4 = { avg: latest.pilares["Aderência aos Valores da APABB"] || 0, conv: (latest.pilares["Aderência aos Valores da APABB"] || 0) };
+        fakeResult.per.p5 = { avg: latest.pilares["Desenvolvimento e Inovação"] || 0, conv: (latest.pilares["Desenvolvimento e Inovação"] || 0) };
+      }
+      const rec = computeTrilhasRecomendadas(fakeResult, latest.tipo);
+      renderUniversidade(rec.length ? rec : [], true /* colabMode */);
+    } else {
+      renderUniversidade([], true /* colabMode, no evals yet */);
+    }
+  } else {
+    renderUniversidade(); // gestores/rh/presidente: show all trilhas + which colaboradores were indicated
+  }
+  show("univScreen");
+  setSidebarActive("Universidade APABB");
+}
+
+function renderUniversidade(recomendadas, colabMode) {
+  const colors = {
+    comportamental:"var(--navy)", tecnico_financeiro:"var(--teal)",
+    tecnico_rh:"var(--emerald)", tecnico_projetos:"var(--gold-d)",
+    tecnico_esporte:"var(--b4)", fit_cultural:"var(--navy-2)"
+  };
+  let html = "";
+
+  // Colaborador mode: show ONLY recommended trilhas
+  if (colabMode) {
+    if (!recomendadas || !recomendadas.length) {
+      html = `<div class="card" style="text-align:center;padding:32px 24px">
+        <div style="font-size:36px;margin-bottom:12px">🎓</div>
+        <div style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px">Nenhuma trilha indicada ainda</div>
+        <p style="font-size:13px;color:var(--muted);max-width:400px;margin:0 auto">Após sua avaliação, as recomendações aparecerão aqui com base nas competências identificadas para desenvolvimento.</p>
+      </div>`;
+    } else {
+      html += `<div class="card" style="border:2px solid var(--gold);margin-bottom:20px;padding:18px">
+        <div class="blocktitle" style="margin-top:0;color:var(--gold-d)">⭐ Suas Trilhas Recomendadas</div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Baseado nas competências identificadas para desenvolvimento na sua última avaliação:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">`;
+      recomendadas.forEach(t => {
+        html += `<div style="background:var(--gold-bg);border:1px solid var(--gold);border-radius:10px;padding:12px 16px;min-width:200px;max-width:300px">
+          <div style="font-weight:700;font-size:13px">${t.nome}</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px">${t.desc}</div>
+          <span style="display:inline-block;margin-top:8px;padding:2px 8px;background:var(--gold);border-radius:99px;font-size:10px;font-weight:700;color:var(--ink)">${t.tag}</span>
+        </div>`;
+      });
+      html += `</div></div>`;
+    }
+    document.getElementById("univContent").innerHTML = html;
+    return;
+  }
+
+  // Gestor / RH / Presidente mode: show recommended banner (if passed) + all trilhas
+  if (recomendadas && recomendadas.length) {
+    html += `<div class="card" style="border:2px solid var(--gold);margin-bottom:20px;padding:18px">
+      <div class="blocktitle" style="margin-top:0;color:var(--gold-d)">⭐ Trilhas Recomendadas para este Colaborador</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Baseado nas competências com menor nota nesta avaliação:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">`;
+    recomendadas.forEach(t => {
+      html += `<div style="background:var(--gold-bg);border:1px solid var(--gold);border-radius:10px;padding:10px 14px;min-width:200px;max-width:280px">
+        <div style="font-weight:700;font-size:13px">${t.nome}</div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:3px">${t.desc}</div>
+        <span style="display:inline-block;margin-top:6px;padding:2px 8px;background:var(--gold);border-radius:99px;font-size:10px;font-weight:700;color:var(--ink)">${t.tag}</span>
+      </div>`;
+    });
+    html += `</div></div>`;
+  }
+  Object.entries(TRILHAS).forEach(([cat, trilhas]) => {
+    const cor = colors[cat] || "var(--navy)";
+    html += `<div class="block" style="margin-bottom:14px">
+      <div class="bhead" style="background:${cor}15;border-left:4px solid ${cor}">
+        <span class="btitle" style="color:${cor}">${TRILHA_LABELS[cat]||cat}</span>
+        <span class="bavg" style="background:${cor};color:#fff">${trilhas.length} trilhas</span>
+        <span class="chev">▾</span>
+      </div>
+      <div class="bbody" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;padding:14px">`;
+    trilhas.forEach(t => {
+      html += `<div style="background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
+        <div style="font-weight:700;font-size:13px;color:var(--ink)">${t.nome}</div>
+        <div style="font-size:12px;color:var(--muted);margin:4px 0 8px">${t.desc}</div>
+        <span style="display:inline-block;padding:2px 8px;background:${cor}20;color:${cor};border-radius:99px;font-size:10.5px;font-weight:700">${t.tag}</span>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  document.getElementById("univContent").innerHTML = html;
+  document.querySelectorAll("#univContent .bhead").forEach(hd => hd.addEventListener("click", () => hd.closest(".block").classList.toggle("collapsed")));
+}
+
+/* Compute trilhas recomendadas from eval result */
+function computeTrilhasRecomendadas(result, tipoAvaliacao) {
+  if (!result) return [];
+  const rec = [];
+  // Comportamental check
+  const comp = result.per && result.per.p3;
+  if (comp && comp.conv != null && comp.conv < 70) {
+    rec.push(...TRILHAS.comportamental.filter(t => ["Comunicação","Equipe","IE","Conflitos"].includes(t.tag)));
+  }
+  // Fit cultural check
+  const cult = result.per && result.per.p4;
+  if (cult && cult.conv != null && cult.conv < 70) {
+    rec.push(...TRILHAS.fit_cultural);
+  }
+  // Technical check — infer from target cargo
+  if (tipoAvaliacao !== "ascend" && ctx.target) {
+    const tech = result.per && result.per.p2;
+    if (tech && tech.conv != null && tech.conv < 70) {
+      const ck = ctx.target.cargoKey || "";
+      if (["financeiro","coord_financeiro","estagio_financeiro"].includes(ck)) rec.push(...TRILHAS.tecnico_financeiro);
+      else if (["rh","coord_rh"].includes(ck)) rec.push(...TRILHAS.tecnico_rh);
+      else if (["coord_projetos","coord_captacao","captacao"].includes(ck)) rec.push(...TRILHAS.tecnico_projetos);
+      else if (["tec_esporte_lazer","tec_modalidade","estagio_edfisica","coord_esporte"].includes(ck)) rec.push(...TRILHAS.tecnico_esporte);
+    }
+  }
+  // Deduplicate
+  const seen = new Set();
+  return rec.filter(t => { if (seen.has(t.nome)) return false; seen.add(t.nome); return true; });
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURE 5 — PEOPLE ANALYTICS AVANÇADO (patch renderAnalytics)
+═══════════════════════════════════════════════════════════════ */
+const _origRenderAnalytics = renderAnalytics;
+window.renderAnalytics = function() {
+  _origRenderAnalytics();
+  const container = document.getElementById("analyticsContent");
+  const allEvals = DB.evals;
+  if (!allEvals.length) return;
+
+  // Build per-person data for risk indicators
+  const perPerson2 = {};
+  allEvals.filter(r=>r.tipo==="gestor"||r.tipo==="rh").forEach(r => {
+    if (!perPerson2[r.targetLogin]) perPerson2[r.targetLogin] = { nome:r.targetNome, filial:r.targetFilial, funcao:r.targetFuncao, scores:[], recs:[] };
+    perPerson2[r.targetLogin].scores.push(r.score);
+    perPerson2[r.targetLogin].recs.push(r);
+  });
+  // Sort recs by date for each person
+  Object.values(perPerson2).forEach(p => p.recs.sort((a,b)=>a.data.localeCompare(b.data)));
+
+  // Risk indicators
+  const riscoDesligamento = [];
+  const riscoEstagnacao = [];
+  const potencialPromocao = [];
+
+  Object.entries(perPerson2).forEach(([login, p]) => {
+    const n = p.recs.length;
+    const last = p.recs[n-1].score;
+    const isQuedaRecorrente = n>=3 && p.recs.slice(-3).every((r,i,a)=>i===0||r.score<a[i-1].score);
+    const lowTwoPlus = n>=2 && p.recs.slice(-2).every(r=>r.score<60);
+    if (lowTwoPlus || isQuedaRecorrente) riscoDesligamento.push({...p, score:last, login});
+    else if (n>=2 && Math.abs(p.recs.slice(-2).map(r=>r.score).reduce((a,b)=>b-a))<=3) riscoEstagnacao.push({...p, score:last, login});
+    const allHighPlus = n>=2 && p.recs.slice(-2).every(r=>r.score>=85);
+    if (allHighPlus) potencialPromocao.push({...p, score:last, login});
+  });
+
+  // Top 10 talents full list
+  const personList2 = Object.values(perPerson2).map(p=>({...p, avg:Math.round(p.scores.reduce((a,b)=>a+b,0)/p.scores.length)})).sort((a,b)=>b.avg-a.avg).slice(0,10);
+
+  // Top managers (by team avg)
+  const managerPerf = {};
+  ROSTER.filter(p=>p.role==="gestor"||p.role==="diretor").forEach(mgr => {
+    const teamLogins = ROSTER.filter(t=>t.filial===mgr.filial&&t.login!==mgr.login&&t.login!=="DIRETORIA"&&t.login!=="FRANCISCODJALMA").map(t=>t.login);
+    const teamEvals = allEvals.filter(r=>(r.tipo==="gestor"||r.tipo==="rh")&&teamLogins.includes(r.targetLogin));
+    if (teamEvals.length < 2) return;
+    const teamAvg = Math.round(teamEvals.reduce((a,r)=>a+r.score,0)/teamEvals.length);
+    managerPerf[mgr.login] = { nome:shortName(mgr.nome), funcao:mgr.funcao, filial:mgr.filial.replace("APABB ",""), teamAvg, teamN:teamEvals.length };
+  });
+  const topManagers = Object.values(managerPerf).sort((a,b)=>b.teamAvg-a.teamAvg).slice(0,5);
+
+  let extra = `<div style="margin-top:20px">`;
+
+  // Risk indicators section
+  extra += `<div class="card" style="padding:20px;margin-bottom:20px">
+    <div class="blocktitle" style="margin-top:0">🚨 Indicadores de Risco e Potencial</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">`;
+
+  extra += `<div style="background:var(--red-bg);border:1px solid var(--red);border-radius:12px;padding:14px">
+    <div style="font-weight:800;color:var(--red);margin-bottom:8px">🔴 Risco de Desligamento (${riscoDesligamento.length})</div>`;
+  if (riscoDesligamento.length) {
+    riscoDesligamento.slice(0,5).forEach(p => extra += `<div style="font-size:12.5px;padding:4px 0;border-bottom:1px solid var(--border)">${p.nome} <span style="float:right;font-weight:700;color:var(--red)">${p.score}</span></div>`);
+  } else extra += `<div style="font-size:12.5px;color:var(--muted)">Nenhum colaborador neste risco.</div>`;
+  extra += `</div>`;
+
+  extra += `<div style="background:var(--amber-bg);border:1px solid var(--amber);border-radius:12px;padding:14px">
+    <div style="font-weight:800;color:var(--amber);margin-bottom:8px">🟡 Risco de Estagnação (${riscoEstagnacao.length})</div>`;
+  if (riscoEstagnacao.length) {
+    riscoEstagnacao.slice(0,5).forEach(p => extra += `<div style="font-size:12.5px;padding:4px 0;border-bottom:1px solid var(--border)">${p.nome} <span style="float:right;font-weight:700;color:var(--amber)">${p.score}</span></div>`);
+  } else extra += `<div style="font-size:12.5px;color:var(--muted)">Nenhum colaborador neste risco.</div>`;
+  extra += `</div>`;
+
+  extra += `<div style="background:var(--green-bg);border:1px solid var(--green);border-radius:12px;padding:14px">
+    <div style="font-weight:800;color:var(--green);margin-bottom:8px">🟢 Potencial de Promoção (${potencialPromocao.length})</div>`;
+  if (potencialPromocao.length) {
+    potencialPromocao.slice(0,5).forEach(p => extra += `<div style="font-size:12.5px;padding:4px 0;border-bottom:1px solid var(--border)">${p.nome} <span style="float:right;font-weight:700;color:var(--green)">${p.score}</span></div>`);
+  } else extra += `<div style="font-size:12.5px;color:var(--muted)">Nenhum colaborador elegível ainda.</div>`;
+  extra += `</div></div></div>`;
+
+  // Top 10 Talents
+  extra += `<div class="card" style="padding:20px;margin-bottom:20px">
+    <div class="blocktitle" style="margin-top:0">🏆 Top 10 Talentos</div>
+    <table class="heatmap-table"><thead><tr><th>#</th><th>Colaborador</th><th>Função</th><th>Unidade</th><th>Média</th><th></th></tr></thead><tbody>`;
+  personList2.forEach((p,i) => {
+    const col = p.avg>=80?'var(--green)':p.avg>=70?'var(--amber)':'var(--red)';
+    extra += `<tr><td><span class="rank-num">${i+1}</span></td><td><strong>${p.nome}</strong></td>
+      <td style="font-size:11.5px;color:var(--muted)">${p.funcao||''}</td>
+      <td style="font-size:11.5px;color:var(--muted)">${(p.filial||'').replace('APABB ','')}</td>
+      <td style="font-weight:700;color:${col}">${p.avg}</td>
+      <td><div class="heat-bar" style="width:${p.avg}%;background:${col}"></div></td></tr>`;
+  });
+  extra += `</tbody></table></div>`;
+
+  // Top Managers
+  if (topManagers.length) {
+    extra += `<div class="card" style="padding:20px;margin-bottom:20px">
+      <div class="blocktitle" style="margin-top:0">👑 Top Gestores — Desempenho de Equipe</div>
+      <table class="heatmap-table"><thead><tr><th>#</th><th>Gestor</th><th>Unidade</th><th>Média da Equipe</th><th>Aval.</th><th></th></tr></thead><tbody>`;
+    topManagers.forEach((m,i) => {
+      const col = m.teamAvg>=80?'var(--green)':m.teamAvg>=70?'var(--amber)':'var(--red)';
+      extra += `<tr><td><span class="rank-num">${i+1}</span></td><td><strong>${m.nome}</strong></td>
+        <td style="font-size:11.5px;color:var(--muted)">${m.filial}</td>
+        <td style="font-weight:700;color:${col}">${m.teamAvg}</td>
+        <td style="text-align:center">${m.teamN}</td>
+        <td><div class="heat-bar" style="width:${m.teamAvg}%;background:${col}"></div></td></tr>`;
+    });
+    extra += `</tbody></table></div>`;
+  }
+
+  // Heatmap by area (already exists as byFilial, but add a color-coded version)
+  const filiais2 = [...new Set(ROSTER.filter(p=>p.login!=="DIRETORIA"&&p.login!=="FRANCISCODJALMA").map(p=>p.filial))].sort();
+  const heatRows = filiais2.map(f => {
+    const logins = new Set(ROSTER.filter(p=>p.filial===f).map(p=>p.login));
+    const evs = allEvals.filter(r=>(r.tipo==="gestor"||r.tipo==="rh")&&logins.has(r.targetLogin));
+    const avg = evs.length ? Math.round(evs.reduce((a,r)=>a+r.score,0)/evs.length) : null;
+    return { filial:f.replace("APABB ",""), avg, n:evs.length };
+  }).filter(f=>f.avg!==null).sort((a,b)=>b.avg-a.avg);
+
+  if (heatRows.length) {
+    extra += `<div class="card" style="padding:20px;margin-bottom:20px">
+      <div class="blocktitle" style="margin-top:0">🗺️ Heatmap de Desempenho por Área</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">`;
+    heatRows.forEach(f => {
+      const intensity = Math.min(1, f.avg/100);
+      const col = f.avg>=80?'#16a34a':f.avg>=70?'#d97706':f.avg>=60?'#dc2626':'#991b1b';
+      const bg = f.avg>=80?'#d1fae5':f.avg>=70?'#fef9c3':f.avg>=60?'#fee2e2':'#fecaca';
+      extra += `<div style="background:${bg};border:2px solid ${col};border-radius:12px;padding:12px 16px;min-width:160px;text-align:center">
+        <div style="font-size:11px;font-weight:700;color:${col};letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px">${f.filial}</div>
+        <div style="font-size:28px;font-weight:800;color:${col}">${f.avg}</div>
+        <div style="font-size:11px;color:#64748b">${f.n} avaliações</div>
+      </div>`;
+    });
+    extra += `</div></div>`;
+  }
+
+  extra += `</div>`;
+  container.innerHTML += extra;
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURE 6 — MATRIZ 9-BOX GLOBAL
+═══════════════════════════════════════════════════════════════ */
+function openNineBox() {
+  renderNineBoxGlobal();
+  show("nineBoxScreen");setSidebarActive("Matriz 9-Box");
+}
+
+function renderNineBoxGlobal() {
+  const container = document.getElementById("nineBoxContent");
+  const allEvals = DB.evals;
+  // Build per-person: last score (performance) + growth (potential)
+  const perPerson = {};
+  allEvals.filter(r=>r.tipo==="gestor"||r.tipo==="rh").forEach(r => {
+    if (!perPerson[r.targetLogin]) perPerson[r.targetLogin] = { nome:r.targetNome, filial:r.targetFilial, funcao:r.targetFuncao, recs:[] };
+    perPerson[r.targetLogin].recs.push(r);
+  });
+  Object.values(perPerson).forEach(p => p.recs.sort((a,b)=>a.data.localeCompare(b.data)));
+
+  // Classify
+  const boxes = {};
+  for (let r=0;r<3;r++) for (let c=0;c<3;c++) boxes[`${r}_${c}`] = [];
+
+  Object.values(perPerson).forEach(p => {
+    const n = p.recs.length;
+    const lastScore = p.recs[n-1].score;
+    // Performance axis: 0=low(<70), 1=mid(70-80), 2=high(>80)
+    const perfCol = lastScore >= 80 ? 2 : lastScore >= 70 ? 1 : 0;
+    // Potential axis: based on growth trend
+    let potRow;
+    if (n < 2) { potRow = 1; } // unknown = mid
+    else {
+      const growth = p.recs[n-1].score - p.recs[0].score;
+      potRow = growth > 10 ? 0 : growth >= 0 ? 1 : 2; // row 0=alto, 1=medio, 2=baixo (top to bottom)
+    }
+    boxes[`${potRow}_${perfCol}`].push(p.nome);
+  });
+
+  const cellDefs = [
+    [{t:"Enigma",d:"Alto pot., baixo desemp.",bg:"#fef9c3",bc:"#d97706"},{t:"Forte Potencial",d:"Alto pot., desemp. esperado",bg:"#d1fae5",bc:"#059669"},{t:"Estrela",d:"Alto pot., alto desemp.",bg:"#bbf7d0",bc:"#16a34a"}],
+    [{t:"Dilema",d:"Pot. médio, baixo desemp.",bg:"#fee2e2",bc:"#dc2626"},{t:"Mantenedor",d:"Pot. médio, desemp. esperado",bg:"#fef9c3",bc:"#d97706"},{t:"Alto Desempenho",d:"Pot. médio, alto desemp.",bg:"#d1fae5",bc:"#059669"}],
+    [{t:"Risco",d:"Baixo pot., baixo desemp.",bg:"#fecaca",bc:"#991b1b"},{t:"Eficaz",d:"Baixo pot., desemp. esperado",bg:"#fee2e2",bc:"#dc2626"},{t:"Especialista",d:"Baixo pot., alto desemp.",bg:"#fef9c3",bc:"#d97706"}],
+  ];
+  const colLabels = ["Baixo Desempenho","Desempenho Esperado","Alto Desempenho"];
+  const rowLabels = ["Alto Potencial","Potencial Médio","Baixo Potencial"];
+
+  if (!Object.values(perPerson).length) {
+    container.innerHTML = `<div class="note">Ainda não há avaliações suficientes para montar a Matriz 9-Box. Registre avaliações (Gestor/RH) para pelo menos alguns colaboradores.</div>`;
+    return;
+  }
+
+  let html = `<style>
+    .ninebox-grid { display:grid; grid-template-columns:80px 1fr 1fr 1fr; gap:4px; margin-top:12px; }
+    .nb2-corner { background:transparent; }
+    .nb2-colh { text-align:center; font-size:11.5px; font-weight:700; color:var(--muted); padding:6px 4px; text-transform:uppercase; letter-spacing:.04em; }
+    .nb2-rowh { display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-size:11px; font-weight:700; color:var(--muted); text-align:right; text-transform:uppercase; letter-spacing:.03em; }
+    .nb2-cell { border-radius:10px; padding:10px 12px; min-height:90px; }
+    .nb2-cell-title { font-size:12.5px; font-weight:800; margin-bottom:3px; }
+    .nb2-cell-desc { font-size:11px; color:#64748b; margin-bottom:6px; }
+    .nb2-names { font-size:11.5px; }
+    .nb2-tag { display:inline-block; padding:2px 6px; border-radius:99px; font-size:10.5px; font-weight:600; margin:1px 2px 1px 0; }
+  </style>
+  <div class="note" style="margin-bottom:12px">
+    <b>Eixo X (Desempenho):</b> nota da última avaliação (Gestor/RH). &nbsp;
+    <b>Eixo Y (Potencial):</b> estimado pela evolução entre ciclos (crescimento &gt;10 pts = alto; estável = médio; queda = baixo).
+    Colaboradores com apenas 1 ciclo são posicionados no potencial médio.
+  </div>
+  <div class="ninebox-grid">
+    <div class="nb2-corner"></div>`;
+  colLabels.forEach(l => html += `<div class="nb2-colh">${l}</div>`);
+  for (let r=0;r<3;r++) {
+    html += `<div class="nb2-rowh">${rowLabels[r]}</div>`;
+    for (let c=0;c<3;c++) {
+      const cell = cellDefs[r][c];
+      const names = boxes[`${r}_${c}`];
+      html += `<div class="nb2-cell" style="background:${cell.bg};border:2px solid ${cell.bc}">
+        <div class="nb2-cell-title" style="color:${cell.bc}">${cell.t}</div>
+        <div class="nb2-cell-desc">${cell.d}</div>
+        <div class="nb2-names">`;
+      if (names.length) {
+        names.forEach(n => html += `<span class="nb2-tag" style="background:${cell.bc}22;color:${cell.bc}">${n}</span>`);
+      } else {
+        html += `<span style="color:#94a3b8;font-size:11px;font-style:italic">—</span>`;
+      }
+      html += `</div></div>`;
+    }
+  }
+  html += `</div>`;
+  container.innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURE 7 — RESUMO IA AO FINAL DE CADA AVALIAÇÃO
+═══════════════════════════════════════════════════════════════ */
+function generateAIResumo(result, score, target, tipo) {
+  if (tipo === "ascend" || !result) return "";
+  const band = BANDS.find(b => score >= b.min);
+  const v = band ? band.v : 1;
+
+  // Get weakest pillars
+  const allComps = [];
+  if (result.per) {
+    Object.entries(result.per).forEach(([k, d]) => {
+      if (d.conv != null) allComps.push({ name: d.name || k, score: d.conv });
+    });
+  }
+  allComps.sort((a,b) => a.score - b.score);
+  const weakPillars = allComps.slice(0, 2).map(c => c.name).filter(Boolean);
+
+  // Probabilidade de promoção
+  let probPromo = score >= 85 ? "Alta" : score >= 75 ? "Média" : "Baixa";
+  const recs = DB.evals.filter(e=>e.targetLogin===target.login&&(e.tipo==="gestor"||e.tipo==="rh")).sort((a,b)=>a.data.localeCompare(b.data));
+  if (recs.length >= 3 && recs.slice(-3).every(r=>r.score>80)) probPromo = "Alta";
+
+  // Probabilidade de retenção
+  const probRetencao = score >= 75 ? "Alta" : score >= 60 ? "Média" : "Baixa";
+
+  // Successors suggestion
+  const isSucessor = score >= 85;
+
+  // Build text
+  const firstName = (target.nome||"").trim().split(/\s+/)[0];
+  let resumo = "";
+
+  const executivo = score >= 90 ? `${firstName} demonstra desempenho excepcional, posicionando-se entre os principais talentos da organização.`
+    : score >= 80 ? `${firstName} apresenta alto desempenho, superando as expectativas da função e contribuindo de forma consistente.`
+    : score >= 70 ? `${firstName} atende plenamente às expectativas, com entregas consistentes e alinhamento à cultura da APABB.`
+    : score >= 60 ? `${firstName} atende parcialmente aos critérios esperados. Há oportunidades de desenvolvimento relevantes.`
+    : `${firstName} apresenta desempenho abaixo do esperado, requerendo atenção imediata e plano estruturado de melhoria.`;
+
+  resumo += `<div style="margin-bottom:10px"><span class="k">Resumo executivo:</span> ${executivo}</div>`;
+
+  if (weakPillars.length) {
+    resumo += `<div style="margin-bottom:10px"><span class="k">Áreas de atenção:</span> Os pilares que demandam mais desenvolvimento são <b>${weakPillars.join("</b> e <b>")}</b>. Estes devem ser priorizados no PDI do próximo ciclo.</div>`;
+  }
+
+  resumo += `<div style="margin-bottom:8px"><span class="k">Probabilidade de promoção:</span> <b style="color:${probPromo==='Alta'?'var(--green)':probPromo==='Média'?'var(--amber)':'var(--red)'}">${probPromo}</b>
+    ${probPromo==='Alta'?' — Critérios de desempenho e consistência atingidos. Indicado para processos seletivos internos.':probPromo==='Média'?' — Há potencial; requer consistência por mais 1–2 ciclos antes de avançar.':' — Desempenho atual não sustenta progressão. Focar no plano de desenvolvimento.'}</div>`;
+
+  resumo += `<div style="margin-bottom:8px"><span class="k">Probabilidade de retenção:</span> <b style="color:${probRetencao==='Alta'?'var(--green)':probRetencao==='Média'?'var(--amber)':'var(--red)'}">${probRetencao}</b>
+    ${probRetencao==='Alta'?' — Perfil engajado; garantir reconhecimento e desafios para manter o vínculo.':probRetencao==='Média'?' — Atenção ao engajamento; reforçar feedback e perspectivas de desenvolvimento.':' — Risco elevado; abordar rapidamente as causas e iniciar plano de suporte.'}</div>`;
+
+  // Recomendações
+  const recGestor = v >= 4 ? "Ofereça novos desafios, visibilidade e conversas de carreira."
+    : v === 3 ? "Mantenha o acompanhamento, combine 1–2 metas de desenvolvimento no PDI."
+    : v === 2 ? "Aumente a frequência de feedback e defina metas de curto prazo (30–60 dias)."
+    : "Inicie Plano de Melhoria formal com metas, prazo e acompanhamento semanal.";
+  const recRH = v >= 4 ? "Incluir no banco de talentos e na conversa de sucessão."
+    : v >= 3 ? "Acompanhar evolução no próximo ciclo e validar PDI com o gestor."
+    : "Monitorar de perto; envolver RH na construção do plano de melhoria.";
+
+  resumo += `<div style="margin-bottom:8px"><span class="k">Para o gestor:</span> ${recGestor}</div>`;
+  resumo += `<div style="margin-bottom:8px"><span class="k">Para o RH:</span> ${recRH}</div>`;
+
+  if (isSucessor) {
+    resumo += `<div style="background:var(--green-bg);border:1px solid var(--green);border-radius:8px;padding:10px;margin-top:8px">
+      <b style="color:var(--green)">⭐ Potencial Sucessor:</b> ${firstName} demonstra excelência consistente e está apto(a) a assumir responsabilidades maiores. Considere incluir no programa de sucessão da APABB.
+    </div>`;
+  }
+
+  return resumo;
+}
+
+/* Patch showResult to inject AI summary */
+const _origShowResult2 = window.showResult;
+window.showResult = function() {
+  _origShowResult2();
+  const aiBlock = document.getElementById("aiResumoBlock");
+  if (!aiBlock) return;
+  if (ctx.tipo === "ascend") { aiBlock.style.display = "none"; return; }
+  const resumo = generateAIResumo(ctx.result, ctx.scoreFinal, ctx.target, ctx.tipo);
+  document.getElementById("aiResumoContent").innerHTML = resumo;
+  aiBlock.style.display = "block";
+
+  // Show trilhas recomendadas in PDI section
+  const trilhas = computeTrilhasRecomendadas(ctx.result, ctx.tipo);
+  const trilhasEl = document.getElementById("pdiTrilhas");
+  if (trilhasEl && trilhas.length) {
+    let th = `<div style="margin-top:14px"><div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px">Trilhas Recomendadas (Universidade APABB)</div><div style="display:flex;flex-wrap:wrap;gap:8px">`;
+    trilhas.forEach(t => {
+      th += `<div style="background:var(--navy-4);border:1px solid var(--navy-3);border-radius:8px;padding:8px 12px;min-width:160px;max-width:240px">
+        <div style="font-size:12.5px;font-weight:700;color:var(--navy)">${t.nome}</div>
+        <div style="font-size:11.5px;color:var(--muted)">${t.desc}</div>
+      </div>`;
+    });
+    th += `</div></div>`;
+    trilhasEl.innerHTML = th;
+  }
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   ADD NEW MENU ITEMS to openHome (Elegibilidade, Universidade, 9-Box)
+═══════════════════════════════════════════════════════════════ */
+const _origOpenHome2 = window.openHome;
+window.openHome = function() {
+  _origOpenHome2();
+  if (USER.role === "rh" || USER.role === "presidente") {
+    const grid = document.getElementById("actionGrid");
+    const items = [
+      { icon:"📊", title:"Elegibilidade", desc:"Critérios de promoção, aumento salarial e movimentação por colaborador.", fn: openEligibilidade },
+      { icon:"🎓", title:"Universidade APABB", desc:"Trilhas de aprendizagem por categoria e competência.", fn: openUniversidade },
+      { icon:"⬛", title:"Matriz 9-Box", desc:"Posicionamento potencial × desempenho de todos os colaboradores.", fn: openNineBox },
+    ];
+    items.forEach(item => {
+      const d = document.createElement("div");
+      d.className = "action";
+      d.innerHTML = `<div class="action-icon">${item.icon}</div><h3>${item.title}</h3><p>${item.desc}</p>`;
+      d.addEventListener("click", item.fn);
+      grid.appendChild(d);
+    });
+  }
+};
+
+/* ═══════════════════════════════════════════════════════════
+   SIDEBAR NAVIGATION
+═══════════════════════════════════════════════════════════ */
+function renderSidebar(){
+  if(!USER){ hideSidebar(); return; }
+  const isRH=USER.role==="rh"||USER.role==="presidente"||USER.role==="diretor";
+  const isGestor=USER.role==="gestor"||isRH;
+  const pend=getPendencias();
+  const pendCount=pend.length;
+
+  const groups=[];
+
+  // Avaliações
+  const avalItems=[];
+  avalItems.push({icon:"👤",label:"Autoavaliação",fn:()=>startEval("auto",USER)});
+  const gerente2=ROSTER.find(p=>p.cargoKey==="gerente_nucleo"&&p.filial===USER.filial&&p.login!==USER.login);
+  if(gerente2) avalItems.push({icon:"⬆️",label:"Avaliar meu gestor",fn:()=>startEval("ascend",gerente2)});
+  if(canSeeOthers()) avalItems.push({icon:"👥",label:"Avaliar colaborador",fn:()=>openPick("gestor")});
+  if(USER.role==="rh") avalItems.push({icon:"🏛️",label:"Avaliação RH",fn:()=>openPick("rh")});
+  if(USER.role==="rh") avalItems.push({icon:"🤝",label:"Avaliação Delegado",fn:()=>openPick("delegado")});
+  if(USER.role==="presidente") avalItems.push({icon:"👥",label:"Avaliar colaborador",fn:()=>openPick("gestor")});
+  if(USER.role==="presidente") avalItems.push({icon:"🏛️",label:"Avaliação Executiva",fn:()=>openPick("rh")});
+  groups.push({title:"Avaliações",items:avalItems});
+
+  // Histórico & Análise
+  const histItems=[];
+  histItems.push({icon:"📈",label:"Histórico",fn:openHistory});
+  histItems.push({icon:"⚖️",label:"Confrontar avaliações",fn:()=>{canSeeOthers()||USER.role==="presidente"?openPick("auto","cons"):openConsolidation(USER);}});
+  if(isGestor) histItems.push({icon:"📊",label:"People Analytics",fn:openAnalytics});
+  groups.push({title:"Histórico & Análise",items:histItems});
+
+  // Desenvolvimento
+  const devItems=[];
+  if(isRH||USER.role==="gestor") devItems.push({icon:"🎓",label:"Universidade APABB",fn:openUniversidade});
+  devItems.push({icon:"📘",label:"Guia do gestor",fn:openOrient});
+  if(devItems.length) groups.push({title:"Desenvolvimento",items:devItems});
+
+  // Gestão de Pessoas
+  const gestItems=[];
+  if(isRH||USER.role==="gestor") gestItems.push({icon:"📋",label:"Elegibilidade",fn:openEligibilidade});
+  if(isRH) gestItems.push({icon:"⬛",label:"Matriz 9-Box",fn:openNineBox});
+  if(gestItems.length) groups.push({title:"Gestão de Pessoas",items:gestItems});
+
+  // Administração
+  const adminItems=[];
+  if(isRH||USER.role==="diretor") adminItems.push({icon:"📋",label:"Critérios",fn:openCriteria});
+  if(canSeeOthers()||isRH) adminItems.push({icon:"💾",label:"Backup",fn:openData});
+  adminItems.push({icon:"⚠️",label:"Pendências",fn:openPendencias,badge:pendCount>0?pendCount:null});
+  groups.push({title:"Administração",items:adminItems});
+
+  // Conta
+  groups.push({title:"Conta",items:[
+    {icon:"🔑",label:"Trocar senha",fn:openPwChange},
+    {icon:"🚪",label:"Sair",fn:()=>document.getElementById("logoutBtn").click()}
+  ]});
+
+  let html="";
+  groups.forEach(g=>{
+    html+=`<div class="sidebar-group-title">${g.title}</div>`;
+    g.items.forEach(item=>{
+      const badgeHtml=item.badge?`<span class="sidebar-badge">${item.badge}</span>`:"";
+      html+=`<div class="sidebar-item" data-sitem="${item.label}"><span class="si-icon">${item.icon}</span><span>${item.label}</span>${badgeHtml}</div>`;
+    });
+  });
+
+  document.getElementById("sidebarItems").innerHTML=html;
+  // bind click handlers
+  const allItems=[];
+  groups.forEach(g=>g.items.forEach(i=>allItems.push(i)));
+  document.querySelectorAll(".sidebar-item").forEach(el=>{
+    const label=el.dataset.sitem;
+    const found=allItems.find(i=>i.label===label);
+    if(found) el.addEventListener("click",()=>{setSidebarActive(label);found.fn();});
+  });
+
+  // user info
+  document.getElementById("sbUserName").textContent=shortName(USER.nome);
+  document.getElementById("sbUserRole").textContent=USER.funcao;
+  const sba=document.getElementById("sbAvatar");
+  if(sba) sba.textContent=USER.nome.trim().charAt(0);
+
+  showSidebar();
+}
+
+function showSidebar(){
+  document.getElementById("appSidebar").classList.remove("sb-hidden");
+  document.getElementById("sidebarUser").classList.remove("sb-hidden");
+  const wrap=document.getElementById("mainWrapper");
+  if(wrap) wrap.style.marginLeft="248px";
+  // topbar
+  const tb=document.getElementById("topbar");
+  if(tb) tb.style.display="flex";
+  const tba=document.getElementById("topbarAvatar");
+  if(tba && USER) tba.textContent=USER.nome.trim().charAt(0);
+  // ocultar header nativo
+  const h=document.querySelector("header.app");
+  if(h) h.style.display="none";
+  // avatar sidebar
+  const sba=document.getElementById("sbAvatar");
+  if(sba && USER) sba.textContent=USER.nome.trim().charAt(0);
+}
+
+function hideSidebar(){
+  document.getElementById("appSidebar").classList.add("sb-hidden");
+  document.getElementById("sidebarUser").classList.add("sb-hidden");
+  const wrap=document.getElementById("mainWrapper");
+  if(wrap) wrap.style.marginLeft="0";
+  // topbar
+  const tb=document.getElementById("topbar");
+  if(tb) tb.style.display="none";
+  // restaurar header nativo
+  const h=document.querySelector("header.app");
+  if(h) h.style.display="";
+}
+
+function setSidebarActive(label){
+  document.querySelectorAll(".sidebar-item").forEach(el=>{
+    el.classList.toggle("active", el.dataset.sitem===label);
+  });
+}
+
+function openPendencias(){
+  const pend=getPendencias();
+  let html=`<div class="page-kicker">Administração</div><h2 class="page-title">Pendências e Alertas</h2><p class="page-lead">Avaliações ainda não realizadas no ciclo atual.</p>`;
+  if(!pend.length){
+    html+=`<p style="color:var(--muted);font-size:14px;text-align:center;padding:20px">Nenhuma pendência encontrada. Todas as avaliações estão em dia! ✓</p>`;
+  } else {
+    html+=`<div style="margin-bottom:10px;font-size:13px;color:var(--muted)">${pend.length} pendência(s) encontrada(s)</div>`;
+    html+=`<table class="tb"><thead><tr><th>Nome</th><th>Função</th><th>Tipo de Avaliação</th><th></th></tr></thead><tbody>`;
+    pend.forEach(p=>{
+      html+=`<tr><td>${p.nome}</td><td>${p.funcao}</td><td>${p.tipo}</td><td><button class="btn btn-sm" data-pend-fn="${p.fnKey}">Iniciar →</button></td></tr>`;
+    });
+    html+=`</tbody></table>`;
+  }
+  html+=`<div class="btn-row"><button class="btn btn-ghost" onclick="openHome()">← Voltar</button></div>`;
+  document.getElementById("pendContent").innerHTML=html;
+  show("pendScreen");
+  setSidebarActive("Pendências");
+  document.querySelectorAll("[data-pend-fn]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const k=btn.dataset.pendFn;
+      if(k==="auto") startEval("auto",USER);
+      else if(k==="gestor_pick") openPick("gestor");
+    });
+  });
+}
+
+function getPendencias(){
+  if(!USER) return [];
+  const pend=[];
+  const currentPeriod=getCurrentPeriod();
+
+  // Check if current user has done autoavaliação this period
+  const hasAuto=DB.evals.some(e=>e.targetLogin===USER.login&&e.tipo==="auto"&&e.periodo===currentPeriod);
+  if(!hasAuto){
+    pend.push({nome:shortName(USER.nome),funcao:USER.funcao,tipo:"Autoavaliação",fnKey:"auto"});
+  }
+
+  // Gestor: check team members without gestor eval
+  if(canSeeOthers()){
+    const team=scopeRoster();
+    team.forEach(p=>{
+      const hasGestorEval=DB.evals.some(e=>e.targetLogin===p.login&&(e.tipo==="gestor"||e.tipo==="rh")&&e.periodo===currentPeriod&&e.avaliadorLogin===USER.login);
+      if(!hasGestorEval){
+        pend.push({nome:shortName(p.nome),funcao:p.funcao,tipo:"Avaliação pelo gestor",fnKey:"gestor_pick"});
+      }
+    });
+  }
+
+  // For RH/presidente: check all org members without any eval
+  if(USER.role==="rh"||USER.role==="presidente"){
+    const all=ROSTER.filter(p=>p.login!=="DIRETORIA"&&p.login!=="FRANCISCODJALMA"&&p.login!==USER.login);
+    all.forEach(p=>{
+      const hasEval=DB.evals.some(e=>e.targetLogin===p.login&&e.periodo===currentPeriod);
+      if(!hasEval){
+        const alreadyInPend=pend.some(x=>x.nome===shortName(p.nome)&&x.tipo==="Avaliação pelo gestor");
+        if(!alreadyInPend){
+          pend.push({nome:shortName(p.nome),funcao:p.funcao,tipo:"Sem avaliações no ciclo atual",fnKey:"gestor_pick"});
+        }
+      }
+    });
+  }
+
+  return pend.slice(0,50);
+}
+
+function getCurrentPeriod(){
+  const now=new Date();
+  const sem=now.getMonth()<6?"1º Semestre":"2º Semestre";
+  return sem+" "+now.getFullYear();
+}
+
+function renderPendBanner(){
+  const pb=document.getElementById("pendBanner");
+  if(!pb) return;
+  const pend=getPendencias();
+  if(!pend.length){ pb.style.display="none"; return; }
+  pb.style.display="block";
+  pb.innerHTML=`<div class="pending-banner">
+    <span>⚠️</span>
+    <span>Você tem <b>${pend.length}</b> avaliação(ões) pendente(s) no ciclo atual.</span>
+    <a onclick="openPendencias()">[Ver Pendências]</a>
+  </div>`;
+}
+
 show("loginScreen");
 </script>
 </body>
