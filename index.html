@@ -1619,6 +1619,165 @@ body { background: var(--bg); font-family: 'Inter', system-ui, sans-serif; }
 .quiz-option.correct  { border-color: var(--green); background: var(--green-bg); }
 .quiz-option.wrong    { border-color: var(--red); background: var(--red-bg); }
 .cert-block { background: linear-gradient(135deg, var(--primary-xl), var(--accent-l)); border: 2px solid var(--primary-l); border-radius: var(--radius-lg); padding: 24px; text-align: center; margin-top: 16px; }
+
+/* ═══════════════ WELCOME SCREEN ═══════════════ */
+.welcome-wrap {
+  min-height: calc(100vh - 120px);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: var(--bg);
+}
+.welcome-watermark {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; z-index: 0;
+}
+.welcome-wm-text {
+  font-size: clamp(120px, 22vw, 260px);
+  font-weight: 900; letter-spacing: -0.05em;
+  color: var(--primary);
+  opacity: 0.04;
+  user-select: none;
+  line-height: 1;
+}
+.welcome-content {
+  position: relative; z-index: 1;
+  max-width: 640px; width: 100%;
+  padding: 48px 40px;
+  text-align: center;
+  animation: wc-fade-in 0.7s ease both;
+}
+@keyframes wc-fade-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.welcome-logo-area {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; margin-bottom: 28px;
+}
+.welcome-logo-circle {
+  width: 72px; height: 72px; border-radius: 20px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-m));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(27,58,140,.2);
+  flex-shrink: 0;
+}
+.welcome-logo-text { text-align: left; }
+.welcome-logo-name {
+  font-size: 28px; font-weight: 900; color: var(--primary);
+  letter-spacing: -0.03em; line-height: 1;
+}
+.welcome-logo-sub {
+  font-size: 11px; color: var(--muted); line-height: 1.4;
+  max-width: 200px;
+}
+.welcome-divider {
+  width: 64px; height: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  margin: 0 auto 28px;
+}
+.welcome-title {
+  font-size: clamp(20px, 3vw, 26px); font-weight: 800;
+  color: var(--ink); letter-spacing: -0.03em; line-height: 1.3;
+  margin: 0 0 20px;
+}
+.welcome-desc {
+  font-size: 14.5px; color: var(--muted); line-height: 1.7;
+  margin: 0 0 12px;
+}
+.welcome-desc2 {
+  font-size: 13.5px; color: var(--muted); line-height: 1.6;
+  margin: 0 0 24px;
+}
+.welcome-user-card {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 12px 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-xs);
+}
+.welcome-user-name { font-weight: 700; font-size: 14px; color: var(--ink); }
+.welcome-user-role { font-size: 11.5px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.welcome-wish {
+  font-size: 13px; color: var(--primary); font-weight: 600;
+  font-style: italic;
+}
+
+/* ═══════════════ SIDEBAR TOOLTIPS ═══════════════ */
+.sidebar-item { position: relative; }
+.sb-tooltip {
+  position: absolute; left: calc(100% + 14px); top: 50%;
+  transform: translateY(-50%);
+  background: var(--ink);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 200px; max-width: 260px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0; visibility: hidden;
+  transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+  transform: translateY(-50%) translateX(4px);
+}
+.sidebar-item:hover .sb-tooltip {
+  opacity: 1; visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+.sb-tooltip::before {
+  content: "";
+  position: absolute; right: 100%; top: 50%; transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right-color: var(--ink);
+}
+.sb-tooltip-title { font-weight: 700; font-size: 13px; margin-bottom: 4px; color: #fff; }
+.sb-tooltip-desc  { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+
+/* ═══════════════ VISUAL POLISH ═══════════════ */
+/* Transições suaves globais */
+.sidebar-item, .dash-card, .course-card, .card, button, .btn,
+.table-row, tr, .chip, .badge, .tag {
+  transition: box-shadow .18s ease, transform .15s ease, background .15s ease, border-color .15s ease, opacity .15s ease;
+}
+
+/* Hover nos itens do sidebar — mais refinado */
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.06) !important;
+  transform: translateX(2px);
+}
+.sidebar-item.active {
+  transform: translateX(0);
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* Focus ring melhorado */
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Sombra suave nas telas */
+.screen-content, #mainContent > .hide:not(.hide) {
+  animation: screen-enter .3s ease both;
+}
+@keyframes screen-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Botões — efeito press */
+.btn:active { transform: translateY(1px) scale(0.99); }
+
+/* Cards — hover lift */
+.dash-card:hover, .course-card:hover {
+  box-shadow: var(--shadow-lg, 0 8px 32px rgba(0,0,0,.1)) !important;
+  transform: translateY(-4px) !important;
+}
 </style>
 </head>
 <body>
@@ -1725,6 +1884,32 @@ body { background: var(--bg); font-family: 'Inter', system-ui, sans-serif; }
       <div id="loginErr" class="note warn hide" style="margin-bottom:14px"></div>
       <button class="btn btn-primary btn-full btn-lg" id="loginBtn">Entrar &rarr;</button>
       <p class="login-form-help">Login = primeiro nome + último sobrenome, sem espaços.<br>Senha inicial = seu CPF (somente números).</p>
+    </div>
+  </div>
+</div>
+
+<div id="homeWelcomeScreen" class="hide">
+  <div class="welcome-wrap">
+    <div class="welcome-watermark">
+      <!-- Marca d'água: texto APABB grande, semi-transparente -->
+      <div class="welcome-wm-text">APABB</div>
+    </div>
+    <div class="welcome-content">
+      <div class="welcome-logo-area">
+        <div class="welcome-logo-circle">
+          <span style="font-size:40px">🏛️</span>
+        </div>
+        <div class="welcome-logo-text">
+          <div class="welcome-logo-name">APABB</div>
+          <div class="welcome-logo-sub">Associação de Pais e Amigos dos Atletas do Brasil</div>
+        </div>
+      </div>
+      <div class="welcome-divider"></div>
+      <h1 class="welcome-title">Bem-vindo(a) ao<br>Sistema de Avaliação de Desempenho 360°</h1>
+      <p class="welcome-desc">Este ambiente foi desenvolvido para apoiar o crescimento profissional, fortalecer a cultura de desenvolvimento contínuo e promover uma gestão de pessoas cada vez mais estratégica e transparente.</p>
+      <p class="welcome-desc2">Utilize o menu lateral para acessar suas avaliações, acompanhamentos, planos de desenvolvimento e demais recursos disponíveis.</p>
+      <div class="welcome-user-card" id="welcomeUserCard"></div>
+      <p class="welcome-wish">Desejamos uma excelente experiência!</p>
     </div>
   </div>
 </div>
@@ -2536,7 +2721,7 @@ function doLogin(){
   if(!u){err.textContent="Login ou senha inválidos. Login = PRIMEIRONOME+ÚLTIMOSOBRENOME (sem espaços); senha = CPF (somente números).";err.classList.remove("hide");return;}
   err.classList.add("hide");USER=u;
   if(u.mustReset && !PW[u.login]){ openPwChange(true); return; } // troca obrigatória no 1º acesso
-  openHome();
+  openHome(); openWelcome();
 }
 $("#logoutBtn").addEventListener("click",()=>{USER=null;$("#inLogin").value="";$("#inSenha").value="";$("#userbar").classList.add("hide");hideSidebar();show("loginScreen");});
 
@@ -2552,7 +2737,7 @@ function doPwChange(){
   if(a.length<6){err.textContent="A nova senha deve ter ao menos 6 caracteres.";err.classList.remove("hide");return;}
   if(a!==b){err.textContent="As senhas não coincidem.";err.classList.remove("hide");return;}
   PW[USER.login]=a;savePW(PW);
-  alert("Senha atualizada com sucesso.");openHome();
+  alert("Senha atualizada com sucesso.");openHome();openWelcome();
 }
 
 function shortName(nome){if(!nome)return"";const t=nome.trim().split(/\s+/);return t.length<2?t[0]:t[0]+" "+t[t.length-1];}
@@ -4801,6 +4986,11 @@ function renderSidebar(){
 
   const groups=[];
 
+  // Início (sempre primeiro)
+  groups.push({title:"",items:[
+    {icon:"🏠",label:"Início",fn:openWelcome}
+  ]});
+
   // Avaliações
   const avalItems=[];
   avalItems.push({icon:"👤",label:"Autoavaliação",fn:()=>startEval("auto",USER)});
@@ -4847,7 +5037,7 @@ function renderSidebar(){
 
   let html="";
   groups.forEach(g=>{
-    html+=`<div class="sidebar-group-title">${g.title}</div>`;
+    if(g.title) html+=`<div class="sidebar-group-title">${g.title}</div>`;
     g.items.forEach(item=>{
       const badgeHtml=item.badge?`<span class="sidebar-badge">${item.badge}</span>`:"";
       html+=`<div class="sidebar-item" data-sitem="${item.label}"><span class="si-icon">${item.icon}</span><span>${item.label}</span>${badgeHtml}</div>`;
@@ -4870,6 +5060,7 @@ function renderSidebar(){
   const sba=document.getElementById("sbAvatar");
   if(sba) sba.textContent=USER.nome.trim().charAt(0);
 
+  injectSidebarTooltips();
   showSidebar();
 }
 
@@ -4995,6 +5186,54 @@ function renderPendBanner(){
 }
 
 show("loginScreen");
+
+function openWelcome() {
+  const card = document.getElementById("welcomeUserCard");
+  if(card && USER) {
+    const roleLabels = {colaborador:"Colaborador",gestor:"Gestor",rh:"RH",diretor:"Diretor",presidente:"Presidente"};
+    card.innerHTML = `<div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0">${(USER.nome||"U").charAt(0).toUpperCase()}</div><div><div class="welcome-user-name">${USER.nome||USER.login}</div><div class="welcome-user-role">${roleLabels[USER.role]||USER.role}${USER.filial?" · "+USER.filial:""}</div></div>`;
+  }
+  show("homeWelcomeScreen");
+  if(typeof setSidebarActive==="function") setSidebarActive("Início");
+}
+
+const _SIDEBAR_TOOLTIPS = {
+  "Início":              {title:"Início",              desc:"Volte à página inicial do sistema."},
+  "Autoavaliação":       {title:"Autoavaliação",       desc:"Realize sua avaliação individual e reflita sobre seu desempenho e competências."},
+  "Avaliações Pendentes":{title:"Avaliações Pendentes",desc:"Visualize e responda avaliações que aguardam sua participação."},
+  "PDI":                 {title:"PDI",                 desc:"Acompanhe seus planos de desenvolvimento e ações de melhoria contínua."},
+  "Universidade APABB":  {title:"Universidade APABB",  desc:"Acesse cursos, trilhas de aprendizagem e conteúdos para seu desenvolvimento."},
+  "Avaliar Equipe":      {title:"Avaliar Equipe",      desc:"Realize avaliações dos membros da sua equipe direta."},
+  "Avaliar colaborador": {title:"Avaliar colaborador", desc:"Realize avaliações dos colaboradores sob sua gestão."},
+  "Avaliação RH":        {title:"Avaliação RH",        desc:"RH avalia qualquer colaborador da APABB."},
+  "Avaliação Executiva": {title:"Avaliação Executiva", desc:"Avaliação institucional de qualquer colaborador."},
+  "Avaliação Delegado":  {title:"Avaliação Delegado",  desc:"Registrar avaliação do Delegado do Núcleo Regional."},
+  "Avaliar meu gestor":  {title:"Avaliar meu gestor",  desc:"Avaliação ascendente do gestor pela equipe."},
+  "Ver Avaliações":      {title:"Ver Avaliações",      desc:"Consulte o histórico e resultados das avaliações realizadas."},
+  "Elegibilidade":       {title:"Elegibilidade",       desc:"Verifique quem está elegível para avaliação no ciclo atual."},
+  "People Analytics":    {title:"People Analytics",    desc:"Dashboards e indicadores estratégicos de gestão de pessoas."},
+  "Matriz 9-Box":        {title:"9-Box",               desc:"Matriz de avaliação de potencial e desempenho da equipe."},
+  "Pendências":          {title:"Pendências",          desc:"Gerencie pendências e notificações do sistema."},
+  "Histórico":           {title:"Histórico",           desc:"Consulte o histórico completo de avaliações e registros."},
+  "Confrontar avaliações":{title:"Confrontar avaliações",desc:"Visão consolidada 360º: RH, gestor, autoavaliação e equipe."},
+  "Guia do gestor":      {title:"Guia do gestor",      desc:"Como agir em cada situação de gestão de pessoas."},
+  "Critérios":           {title:"Critérios",           desc:"Veja competências, pesos e regras da avaliação vigente."},
+  "Backup":              {title:"Backup / Consolidação",desc:"Exportar e importar o banco de avaliações."},
+  "Trocar senha":        {title:"Trocar senha",        desc:"Defina uma nova senha de acesso ao sistema."},
+  "Sair":                {title:"Sair",                desc:"Encerrar a sessão e voltar à tela de login."},
+};
+
+function injectSidebarTooltips() {
+  document.querySelectorAll(".sidebar-item").forEach(item => {
+    const label = item.dataset.sitem || item.querySelector(".si-label")?.textContent?.trim() || item.textContent?.trim();
+    const tt = _SIDEBAR_TOOLTIPS[label];
+    if(tt && !item.querySelector(".sb-tooltip")) {
+      item.insertAdjacentHTML("beforeend",
+        `<div class="sb-tooltip"><div class="sb-tooltip-title">${tt.title}</div><div class="sb-tooltip-desc">${tt.desc}</div></div>`
+      );
+    }
+  });
+}
 </script>
 </body>
 </html>
