@@ -2858,7 +2858,7 @@ function toggleLoginPw(){
   if(inp.type==='password'){ inp.type='text'; if(ico) ico.textContent='🙈'; }
   else { inp.type='password'; if(ico) ico.textContent='👁️'; }
 }
-$("#logoutBtn").addEventListener("click",()=>{USER=null;$("#inLogin").value="";$("#inSenha").value="";$("#userbar").classList.add("hide");hideSidebar();show("loginScreen");});
+$("#logoutBtn").addEventListener("click",()=>{USER=null;["fLogin","inLogin"].forEach(id=>{var e=document.getElementById(id);if(e)e.value="";});["fSenha","inSenha"].forEach(id=>{var e=document.getElementById(id);if(e)e.value="";});var ub=document.getElementById("userbar");if(ub)ub.classList.add("hide");hideSidebar();show("loginScreen");});
 
 /* ===== troca de senha ===== */
 function openPwChange(forced){
@@ -5298,7 +5298,7 @@ function getPendencias(){
     });
   }
 
-  return pend.slice(0,50);
+  return pend.slice(0,200);
 }
 
 function getCurrentPeriod(){
