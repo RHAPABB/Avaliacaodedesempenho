@@ -343,17 +343,15 @@ main {
 .login-brand {
   position: relative; z-index: 1; margin-bottom: 32px;
 }
-.login-brand-logo {
-  font-size: 38px; font-weight: 900; letter-spacing: -1.5px; line-height: 1;
-  margin-bottom: 6px;
+.login-logo-badge {
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px 22px 10px;
+  display: inline-block;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18), 0 1px 4px rgba(0,0,0,.1);
+  margin-bottom: 4px;
 }
-.login-brand-ap  { color: #fff; }
-.login-brand-a   { color: #E8650A; }
-.login-brand-bb  { color: #fff; }
-.login-brand-tagline {
-  font-size: 11.5px; color: rgba(255,255,255,0.55);
-  letter-spacing: 0.02em; line-height: 1.5;
-}
+.login-apabb-svg { width: 148px; height: auto; display: block; }
 
 .login-cycle-badge {
   display: inline-flex; align-items: center; gap: 8px;
@@ -1899,12 +1897,26 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
       </svg>
     </div>
 
-    <!-- Cabecalho da marca -->
+    <!-- Logo APABB (SVG inline) -->
     <div class="login-brand">
-      <div class="login-brand-logo">
-        <span class="login-brand-ap">AP</span><span class="login-brand-a">A</span><span class="login-brand-bb">BB</span>
+      <div class="login-logo-badge">
+        <svg class="login-apabb-svg" viewBox="0 0 290 295" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo APABB">
+          <!-- Arco externo - âmbar escuro -->
+          <path d="M8 215 C6 88 76 6 146 4 C216 2 282 82 286 215 L268 209 C264 92 212 26 146 28 C80 30 36 98 30 209 Z" fill="#F09300"/>
+          <!-- Arco interno - ouro brilhante -->
+          <path d="M44 208 C44 113 88 46 146 44 C204 42 252 108 256 208 L240 203 C236 113 198 60 146 60 C94 60 56 114 54 203 Z" fill="#F5C200"/>
+          <!-- Cabeça - círculo azul marinho -->
+          <circle cx="146" cy="52" r="27" fill="#1A348C"/>
+          <!-- Texto "apabb" -->
+          <text x="144" y="258" text-anchor="middle"
+                font-family="'Arial Black','Franklin Gothic Heavy','Impact',Helvetica,sans-serif"
+                font-size="60" font-weight="900" fill="#1A348C" letter-spacing="-1">apabb</text>
+          <!-- Tagline -->
+          <text x="144" y="281" text-anchor="middle"
+                font-family="Arial,Helvetica,sans-serif"
+                font-size="16" fill="#1A348C" letter-spacing="0.3">normal é ser feliz</text>
+        </svg>
       </div>
-      <div class="login-brand-tagline">Associacao de Pais e Amigos dos Atletas do Brasil</div>
     </div>
 
     <!-- Ciclo vigente -->
